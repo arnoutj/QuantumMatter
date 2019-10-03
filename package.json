@@ -1,8 +1,8 @@
 {
-  "name": "gatsby-datocms-demo",
-  "description": "Gatsby DatoCMS creative portfolio demo",
-  "version": "1.0.0",
-  "author": "Stefano Verna <s.verna@datocms.com>",
+  "name": "quantummatter",
+  "description": "QuantumMatter",
+  "version": "0.1.0",
+  "author": "Arnout Jansen <arnoutjansen@gmail.com>",
   "dependencies": {
     "dotenv": "^7.0.0",
     "gatsby": "2.3.29",
@@ -15,10 +15,7 @@
     "node-sass": "^4.11.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-helmet": "^5.2.0",
-    "react-masonry-component": "^6.2.1",
-    "react-slick": "^0.23.2",
-    "slick-carousel": "^1.8.1"
+    "react-helmet": "^5.2.0"
   },
   "keywords": [
     "gatsby"
