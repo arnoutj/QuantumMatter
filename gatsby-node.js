@@ -21,21 +21,16 @@ exports.createPages = ({ graphql, actions }) => {
     `).then((result) => {
       result.data.allDatoCmsArticle.edges.map(({ node: article }) => {
         // Prefix lab articles with lab slug
-        if (article.lab) {
-          createPage({
-            path: `${article.lab.slug}/article/${article.slug}`,
-            component: path.resolve(`./src/templates/article.js`),
-            context: {
-              slug: article.lab.slug
-            }
-          });
-        } else {
-          // Don't prefix general articles
-          createPage({
-            path: `article/${article.slug}`,
-            component: path.resolve(`./src/templates/article.js`)
-          });
-        }
+        // General articles have no prefix
+        const labSlug = article.lab ? `${article.lab.slug}` : ``;
+
+        createPage({
+          path: `${labSlug}/article/${article.slug}`,
+          component: path.resolve(`./src/templates/article.js`),
+          context: {
+            slug: labSlug
+          }
+        });
       });
       resolve();
     });
