@@ -29,14 +29,14 @@ const TemplateWrapper = ({ children }) => (
         }
         copyright
       }
-      allDatoCmsSocialProfile(sort: { fields: [position], order: ASC }) {
-        edges {
-          node {
-            profileType
-            url
-          }
-        }
-      }
+      # allDatoCmsSocialProfile(sort: { fields: [position], order: ASC }) {
+      #   edges {
+      #     node {
+      #       profileType
+      #       url
+      #     }
+      #   }
+      # }
     }
   `}
   render={data => (
@@ -45,7 +45,7 @@ const TemplateWrapper = ({ children }) => (
         favicon={data.datoCmsSite.faviconMetaTags}
         seo={data.datoCmsHome.seoMetaTags}
       />
-      <div className="container__sidebar">
+      {/* <div className="container__sidebar">
         <div className="sidebar">
           <h6 className="sidebar__title">
             <Link to="/">{data.datoCmsSite.globalSeo.siteName}</Link>
@@ -76,7 +76,7 @@ const TemplateWrapper = ({ children }) => (
           </p>
           <div className="sidebar__copyright">{data.datoCmsHome.copyright}</div>
         </div>
-      </div>
+      </div> */}
       <div className="container__body">
         <div className="container__mobile-header">
           <div className="mobile-header">

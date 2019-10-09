@@ -1,11 +1,9 @@
 import React from 'react'
-import { Link, graphql } from 'gatsby'
-import Img from 'gatsby-image'
 import Layout from "../components/layout"
 
-const IndexPage = ({ data }) => (
+const IndexPage = () => (
   <Layout>
-    {data.allDatoCmsWork.edges.map(({ node: work }) => (
+    {/* {data.allDatoCmsWork.edges.map(({ node: work }) => (
       <div key={work.id} className="showcase__item">
         <figure className="card">
           <Link to={`/works/${work.slug}`} className="card__image">
@@ -21,28 +19,8 @@ const IndexPage = ({ data }) => (
           </figcaption>
         </figure>
       </div>
-    ))}
+    ))} */}
   </Layout>
 )
 
-export default IndexPage
-
-export const query = graphql`
-  query IndexQuery {
-    allDatoCmsWork(sort: { fields: [position], order: ASC }) {
-      edges {
-        node {
-          id
-          title
-          slug
-          excerpt
-          coverImage {
-            fluid(maxWidth: 450, imgixParams: { fm: "jpg", auto: "compress" }) {
-              ...GatsbyDatoCmsSizes
-            }
-          }
-        }
-      }
-    }
-  }
-`
+export default IndexPage;
