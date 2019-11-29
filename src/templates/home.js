@@ -2,8 +2,8 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../components/Layout/layout';
 
-const HomePage = ({ data: { lab } }) => (
-  <Layout>
+const HomePage = ({ data: { lab }, pageContext }) => (
+  <Layout pageContext={pageContext}>
     <h1>Homepage of {lab.title}</h1>
     <p>{lab.description}</p>
   </Layout>

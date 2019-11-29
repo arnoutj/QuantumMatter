@@ -2,3 +2,8 @@
     padding-top: var(--spacing-lg);
     padding-bottom: var(--spacing-lg);
 }
+
+.header_wrapper {
+    display: flex;
+    justify-content: space-between;
+}

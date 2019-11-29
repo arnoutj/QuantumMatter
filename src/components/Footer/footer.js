@@ -1,7 +1,4 @@
 import React from 'react';
-import Logo from '../../assets/svg/logo.svg';
-import { Link, graphql, StaticQuery } from 'gatsby';
-import { Row, Col } from 'react-flexbox-grid';
 
 import "./footer.scss";
 

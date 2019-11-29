@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, graphql } from 'gatsby';
+import { graphql } from 'gatsby';
 import Layout from '../components/Layout/layout';
 
 const NewsPage = ({ data }) => (
@@ -10,9 +10,9 @@ const NewsPage = ({ data }) => (
         <figure className="card">
           <figcaption className="card__caption">
             <h6 className="card__title">
-              <Link to={`${article.lab.slug}/article/${article.slug}`}>
+              <a href={`${article.lab.slug}/article/${article.slug}`}>
                 {article.title}
-              </Link>
+              </a>
             </h6>
             <div className="card__description">
               <p>{article.excerpt}</p>

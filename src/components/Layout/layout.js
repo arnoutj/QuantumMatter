@@ -1,16 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
-
 import { HelmetDatoCms } from 'gatsby-source-datocms';
+
 import Header from '../Header/header';
-import { Grid, Row, Col } from 'react-flexbox-grid';
+import Footer from '../Footer/footer';
 
 import '../../styles/global.scss';
 import './layout.scss';
-import Footer from '../Footer/footer';
 
-const TemplateWrapper = ({ children }) => (
+const TemplateWrapper = ({ children, pageContext }) => (
   <StaticQuery
     query={graphql`
       query LayoutQuery {
@@ -27,7 +26,7 @@ const TemplateWrapper = ({ children }) => (
     render={(data) => (
       <div className="page-container">
         <HelmetDatoCms favicon={data.datoCmsSite.faviconMetaTags} />
-        <Header />
+        <Header pageContext={pageContext} />
         <main role="main">{children}</main>
         <Footer />
       </div>
@@ -36,7 +35,7 @@ const TemplateWrapper = ({ children }) => (
 );
 
 TemplateWrapper.propTypes = {
-  children: PropTypes.object
+  children: PropTypes.any
 };
 
 export default TemplateWrapper;

@@ -2,8 +2,8 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../components/Layout/layout';
 
-export default ({ data }) => (
-  <Layout>
+export default ({ data, pageContext }) => (
+  <Layout pageContext={pageContext}>
     <h1>{data.datoCmsResearchitem.title}</h1>
   </Layout>
 );
