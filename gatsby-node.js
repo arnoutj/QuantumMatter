@@ -104,3 +104,28 @@ exports.createPages = ({ graphql, actions }) => {
 
   return Promise.all([overviews, articles]);
 };
+
+exports.onCreateWebpackConfig = ({
+  stage,
+  rules,
+  loaders,
+  plugins,
+  actions,
+}) => {
+  actions.setWebpackConfig({
+    module: {
+      rules: [
+        {
+          test: /\.css$/,
+          use: 'style-loader!css-loader',
+          include: /flexboxgrid/
+        }
+      ],
+    },
+    plugins: [
+      plugins.define({
+        __DEVELOPMENT__: stage === `develop` || stage === `develop-html`,
+      }),
+    ],
+  })
+}

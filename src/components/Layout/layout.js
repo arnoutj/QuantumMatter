@@ -4,6 +4,7 @@ import { Link } from 'gatsby';
 import { StaticQuery, graphql } from 'gatsby';
 import Logo from '../../assets/svg/logo.svg';
 import { HelmetDatoCms } from 'gatsby-source-datocms';
+import { Grid, Row, Col } from 'react-flexbox-grid';
 
 import '../../styles/global.scss';
 import './layout.scss';
@@ -23,15 +24,21 @@ const TemplateWrapper = ({ children }) => (
       }
     `}
     render={(data) => (
-      <div className="container">
+      <Grid>
         <HelmetDatoCms favicon={data.datoCmsSite.faviconMetaTags} />
-        <div className="header">
-          <Link to="/" alt={data.datoCmsSite.globalSeo.siteName}>
-            <Logo width="250" />
-          </Link>
-        </div>
-        <div>{children}</div>
-      </div>
+        <Row>
+          <Col xs={12}>
+            <Link to="/" alt={data.datoCmsSite.globalSeo.siteName}>
+              <Logo width="250" />
+            </Link>
+          </Col>
+        </Row>
+        <Row>
+          <Col xs={12}>
+            {children}
+          </Col>
+        </Row>
+      </Grid>
     )}
   />
 );
