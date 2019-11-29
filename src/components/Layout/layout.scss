@@ -1,6 +1,16 @@
+html,body {
+    height: 100%;
+}
+
 body {
     font-family: var(--font-primary);
     font-size: var(--font-size);
     line-height: var(--line-height);
     letter-spacing: var(--letter-spacing);
+}
+
+.page-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }

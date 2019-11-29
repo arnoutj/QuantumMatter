@@ -1,10 +1,9 @@
 :root {
     // Spacing
     --spacing: 10px;
-    --spacing-xxs: calc(.25 * var(--spacing));
-    --spacing-xs: calc(.5 * var(--spacing));
-    --spacing-sm: calc(.75 * var(--spacing));
-    --spacing-md: calc(1.25 * var(--spacing));
-    --spacing-lg: calc(2 * var(--spacing));
-    --spacing-xl: calc(3.25 * var(--spacing));
+    --spacing-xs: calc(.25 * var(--spacing));
+    --spacing-sm: calc(.5 * var(--spacing));
+    --spacing-md: calc(2 * var(--spacing));
+    --spacing-lg: calc(3 * var(--spacing));
+    --spacing-xl: calc(4 * var(--spacing));
 }

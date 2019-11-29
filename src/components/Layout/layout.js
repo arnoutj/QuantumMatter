@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'gatsby';
 import { StaticQuery, graphql } from 'gatsby';
-import Logo from '../../assets/svg/logo.svg';
+
 import { HelmetDatoCms } from 'gatsby-source-datocms';
+import Header from '../Header/header';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 
 import '../../styles/global.scss';
 import './layout.scss';
+import Footer from '../Footer/footer';
 
 const TemplateWrapper = ({ children }) => (
   <StaticQuery
@@ -24,21 +25,12 @@ const TemplateWrapper = ({ children }) => (
       }
     `}
     render={(data) => (
-      <Grid>
+      <div className="page-container">
         <HelmetDatoCms favicon={data.datoCmsSite.faviconMetaTags} />
-        <Row>
-          <Col xs={12}>
-            <Link to="/" alt={data.datoCmsSite.globalSeo.siteName}>
-              <Logo width="250" />
-            </Link>
-          </Col>
-        </Row>
-        <Row>
-          <Col xs={12}>
-            {children}
-          </Col>
-        </Row>
-      </Grid>
+        <Header />
+        <main role="main">{children}</main>
+        <Footer />
+      </div>
     )}
   />
 );
