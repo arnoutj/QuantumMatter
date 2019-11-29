@@ -1,14 +1,12 @@
-import React from 'react'
-import { HelmetDatoCms } from 'gatsby-source-datocms'
-import Img from 'gatsby-image'
-import { graphql } from 'gatsby'
-import Layout from "../components/layout"
+import React from 'react';
+import { graphql } from 'gatsby';
+import Layout from '../components/Layout/layout';
 
 export default ({ data }) => (
   <Layout>
     <div>{data.lab.title}</div>
   </Layout>
-)
+);
 
 export const query = graphql`
   query ContactQuery($slug: String!) {

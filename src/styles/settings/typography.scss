@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans:300,400,500,600,700&display=swap');
+
+@font-face {
+  font-family: 'Anivers';
+  src: url('../assets/fonts/anivers.otf') format('ptf');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Anivers';
+  src: url('../assets/fonts/anivers-bold.otf') format('otf');
+  font-weight: bold;
+}
+
+:root {
+  // Font settings
+  --font-primary: 'Fira Sans', sans-serif;
+  --font-secondary: 'Anivers', sans-serif;
+
+  // Font sizes
+  --font-size: 16px;
+  --font-size-sm: calc(var(--font-size) * .875);
+  --font-size-md: calc(var(--font-size) * 1.125);
+  --font-size-lg: calc(var(--font-size) * 1.69);
+  --font-size-xl: calc(var(--font-size) * 2.25);
+  --font-size-xxl: calc(var(--font-size) * 2.75);
+
+  // Font weights
+  --font-weight-ultralight: 100;
+  --font-weight-light: 200;
+  --font-weight-book: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 600;
+
+  // Line height
+  --line-height: 1;
+
+  // Letter spacing
+  --letter-spacing: normal;
+}

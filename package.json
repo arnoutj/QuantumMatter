@@ -5,16 +5,19 @@
   "author": "Arnout Jansen <arnoutjansen@gmail.com>",
   "dependencies": {
     "dotenv": "^7.0.0",
-    "gatsby": "2.3.29",
-    "gatsby-image": "^2.0.40",
-    "gatsby-plugin-react-helmet": "^3.0.12",
-    "gatsby-plugin-sass": "^2.0.11",
-    "gatsby-source-datocms": "^2.1.11",
-    "gatsby-source-filesystem": "^2.0.32",
-    "gatsby-transformer-remark": "^2.3.12",
-    "node-sass": "^4.11.0",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
+    "gatsby": "^2.18.5",
+    "gatsby-image": "^2.2.34",
+    "gatsby-plugin-react-helmet": "^3.1.16",
+    "gatsby-plugin-react-svg": "^2.1.2",
+    "gatsby-plugin-sass": "^2.1.24",
+    "gatsby-plugin-sharp": "^2.3.4",
+    "gatsby-source-datocms": "^2.1.18",
+    "gatsby-source-filesystem": "^2.1.39",
+    "gatsby-transformer-remark": "^2.6.38",
+    "gatsby-transformer-sharp": "^2.3.6",
+    "node-sass": "^4.13.0",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
     "react-helmet": "^5.2.0"
   },
   "keywords": [
@@ -28,6 +31,6 @@
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.js\""
   },
   "devDependencies": {
-    "prettier": "^1.17.0"
+    "prettier": "^1.19.1"
   }
 }

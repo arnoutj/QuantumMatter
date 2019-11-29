@@ -1,26 +1,38 @@
-import React from 'react'
-import Layout from "../components/layout"
+import React from 'react';
+import Layout from '../components/Layout/layout';
+import { HelmetDatoCms } from 'gatsby-source-datocms';
 
-const IndexPage = () => (
+const IndexPage = ({ data: { home } }) => (
   <Layout>
-    {/* {data.allDatoCmsWork.edges.map(({ node: work }) => (
-      <div key={work.id} className="showcase__item">
-        <figure className="card">
-          <Link to={`/works/${work.slug}`} className="card__image">
-            <Img fluid={work.coverImage.fluid} />
-          </Link>
-          <figcaption className="card__caption">
-            <h6 className="card__title">
-              <Link to={`/works/${work.slug}`}>{work.title}</Link>
-            </h6>
-            <div className="card__description">
-              <p>{work.excerpt}</p>
-            </div>
-          </figcaption>
-        </figure>
-      </div>
-    ))} */}
+    <HelmetDatoCms seo={home.seoMetaTags} />
+    <div
+      dangerouslySetInnerHTML={{
+        __html: home.introTextNode.childMarkdownRemark.html
+      }}
+    />
+
+    <h1>H1</h1>
+    <h2>H2</h2>
+    <h3>H3</h3>
+    <h4>H4</h4>
+    <h5>H5</h5>
+    <h6>H6</h6>
   </Layout>
-)
+);
 
 export default IndexPage;
+
+export const query = graphql`
+  query IndexQuery {
+    home: datoCmsHome {
+      seoMetaTags {
+        ...GatsbyDatoCmsSeoMetaTags
+      }
+      introTextNode {
+        childMarkdownRemark {
+          html
+        }
+      }
+    }
+  }
+`;

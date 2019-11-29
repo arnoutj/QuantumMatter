@@ -1,10 +1,10 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import Layout from '../components/layout';
+import Layout from '../components/Layout/layout';
 
 const HomePage = ({ data: { lab } }) => (
   <Layout>
-    <h1>{lab.title}</h1>
+    <h1>Homepage of {lab.title}</h1>
     <p>{lab.description}</p>
   </Layout>
 );

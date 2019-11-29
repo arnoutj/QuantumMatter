@@ -1,0 +1,37 @@
+@mixin heading {
+  font-family: var(--font-secondary);
+  margin: 0;
+}
+
+h1 {
+  @include heading;
+  font-size: var(--font-size-xxl);
+  margin-bottom: var(--spacing);
+}
+
+h2 {
+    @include heading;
+    font-size: var(--font-size-xl);
+}
+
+h3 {
+  @include heading;
+  font-size: 27px;
+  font-size: var(--font-size-lg);
+}
+
+h4 {
+  @include heading;
+  font-size: 18px;
+  font-size: var(--font-size-md);
+}
+
+h5 {
+  @include heading;
+  font-size: var(--font-size-md);
+}
+
+h6 {
+  @include heading;
+  font-size: var(--font-size-sm);
+}

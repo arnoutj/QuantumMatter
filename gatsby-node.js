@@ -92,7 +92,7 @@ exports.createPages = ({ graphql, actions }) => {
         // News
         createPage({
           path: `${lab.slug}/news`,
-          component: path.resolve(`./src/pages/news-overview.js`),
+          component: path.resolve(`./src/templates/news-overview.js`),
           context: {
             slug: lab.slug
           }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, graphql } from 'gatsby';
-import Layout from '../components/layout';
+import Layout from '../components/Layout/layout';
 
 const NewsPage = ({ data }) => (
   <Layout>
@@ -27,7 +27,7 @@ const NewsPage = ({ data }) => (
 export default NewsPage;
 
 export const query = graphql`
-  query NewsQuery($slug: String!) {
+  query NewsOverviewQuery($slug: String!) {
     allDatoCmsNews(filter: { lab: { slug: { eq: $slug } } }) {
       edges {
         node {
