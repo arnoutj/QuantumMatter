@@ -47,19 +47,23 @@ exports.createPages = ({ graphql, actions }) => {
           }
         }
       `)
-      .then((result) => {
-        result.data[`allDatoCms${type.datoCmsModelName}`].edges.map(({ node: article }) => {
-          createPage({
-            path: `${article.lab ? article.lab.slug : ''}/${type.slug}/${article.slug}`, // Prefix lab articles with lab slug (.e.g. /de-visser/news/article-name)
-            component: path.resolve(`./src/templates/${type.fileName}.js`),
-            context: {
-              slug: article.lab ? article.lab.slug : null // Slug will be used for querying article
+        .then((result) => {
+          result.data[`allDatoCms${type.datoCmsModelName}`].edges.map(
+            ({ node: article }) => {
+              createPage({
+                path: `${article.lab ? article.lab.slug : ''}/${type.slug}/${
+                  article.slug
+                }`, // Prefix lab articles with lab slug (.e.g. /de-visser/news/article-name)
+                component: path.resolve(`./src/templates/${type.fileName}.js`),
+                context: {
+                  slug: article.lab ? article.lab.slug : null // Slug will be used for querying article
+                }
+              });
             }
-          });
-        });
-        resolve();
-      })
-      .catch((e) => reject(e));
+          );
+          resolve();
+        })
+        .catch((e) => reject(e));
     });
   };
 
@@ -104,28 +108,3 @@ exports.createPages = ({ graphql, actions }) => {
 
   return Promise.all([overviews, articles]);
 };
-
-exports.onCreateWebpackConfig = ({
-  stage,
-  rules,
-  loaders,
-  plugins,
-  actions,
-}) => {
-  actions.setWebpackConfig({
-    module: {
-      rules: [
-        {
-          test: /\.css$/,
-          use: 'style-loader!css-loader',
-          include: /flexboxgrid/
-        }
-      ],
-    },
-    plugins: [
-      plugins.define({
-        __DEVELOPMENT__: stage === `develop` || stage === `develop-html`,
-      }),
-    ],
-  })
-}

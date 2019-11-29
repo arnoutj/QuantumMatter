@@ -10,7 +10,7 @@ const NewsPage = ({ data }) => (
         <figure className="card">
           <figcaption className="card__caption">
             <h6 className="card__title">
-              <a href={`${article.lab.slug}/article/${article.slug}`}>
+              <a href={`/${article.lab.slug}/news/${article.slug}`}>
                 {article.title}
               </a>
             </h6>
