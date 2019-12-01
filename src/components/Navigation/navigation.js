@@ -50,7 +50,7 @@ class Navigation extends React.Component {
               <a
                 className="menu_item"
                 role="menuitem"
-                tabIndex="0"
+                tabIndex={key}
                 href={this.getUrl(item.slug, item.generalPage)}
               >
                 {item.label}

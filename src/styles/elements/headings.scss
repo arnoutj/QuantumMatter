@@ -1,12 +1,19 @@
 @mixin heading {
+  display: inline;
+  position: relative;
   font-family: var(--font-secondary);
-  margin: 0;
+  background-image: linear-gradient(180deg,transparent 75%,var(--color-primary) 0);
+  background-repeat: no-repeat;
+  text-decoration: none;
+  animation: underline;
+  animation-fill-mode: forwards;
+  animation-duration: var(--transition-duration);
+  animation-timing-function: var(--transition-ease);
 }
 
 h1 {
   @include heading;
   font-size: var(--font-size-xxl);
-  margin-bottom: var(--spacing);
 }
 
 h2 {
@@ -34,4 +41,13 @@ h5 {
 h6 {
   @include heading;
   font-size: var(--font-size-sm);
+}
+
+@keyframes underline {
+  0% {
+    background-size: 0% 100%;
+  }
+  100% {
+    background-size: 100% 100%;
+  }
 }

@@ -1,9 +1,14 @@
 // Settings
+@import "./settings/breakpoints.scss";
 @import "./settings/colors.scss";
 @import "./settings/normalize.scss";
 @import "./settings/miscellaneous.scss";
 @import "./settings/spacing.scss";
 @import "./settings/typography.scss";
+@import "./settings/themes.scss";
 
 // Elements
 @import "./elements/headings.scss";
+@import "./elements/link.scss";
+@import "./elements/main.scss";
+@import "./elements/paragraph.scss";

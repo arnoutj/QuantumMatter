@@ -1,22 +1,25 @@
 import React from 'react';
 import Layout from '../components/Layout/layout';
 import { HelmetDatoCms } from 'gatsby-source-datocms';
+import { Grid, Row, Col } from 'react-flexbox-grid';
 
 const IndexPage = ({ data: { home } }) => (
   <Layout>
     <HelmetDatoCms seo={home.seoMetaTags} />
-    <div
-      dangerouslySetInnerHTML={{
-        __html: home.introTextNode.childMarkdownRemark.html
-      }}
-    />
-
-    <h1>H1</h1>
-    <h2>H2</h2>
-    <h3>H3</h3>
-    <h4>H4</h4>
-    <h5>H5</h5>
-    <h6>H6</h6>
+    <Grid>
+      <Row center="sm">
+        <Col xs={12} md={7}>
+          <h1>
+            {home.title}
+          </h1>
+          <div
+            dangerouslySetInnerHTML={{
+              __html: home.introTextNode.childMarkdownRemark.html
+            }}
+          />
+        </Col>
+      </Row>
+    </Grid>
   </Layout>
 );
 
@@ -28,6 +31,7 @@ export const query = graphql`
       seoMetaTags {
         ...GatsbyDatoCmsSeoMetaTags
       }
+      title
       introTextNode {
         childMarkdownRemark {
           html

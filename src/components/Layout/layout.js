@@ -24,7 +24,7 @@ const TemplateWrapper = ({ children, pageContext }) => (
       }
     `}
     render={(data) => (
-      <div className="page-container">
+      <div className="page-container theme-purple">
         <HelmetDatoCms favicon={data.datoCmsSite.faviconMetaTags} />
         <Header pageContext={pageContext} />
         <main role="main">{children}</main>

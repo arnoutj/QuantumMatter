@@ -1,0 +1,7 @@
+@import "../settings/breakpoints.scss";
+
+main {
+  @media screen and (min-width: $breakpoint-sm) {
+    padding-top: 5rem;
+  }
+}

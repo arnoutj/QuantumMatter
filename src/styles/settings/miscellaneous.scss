@@ -2,7 +2,7 @@
 :root {
     // Transitions
     --transition-duration: 200ms;
-    --transition-ease: ease;
+    --transition-ease: cubic-bezier(.07,.71,.1,.9);
 
     //Other
     --border-radius: var(--spacing-lg);

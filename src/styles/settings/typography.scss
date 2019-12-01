@@ -19,8 +19,9 @@
 
   // Font sizes
   --font-size: 16px;
+  --font-size-xs: calc(var(--font-size) * .68);
   --font-size-sm: calc(var(--font-size) * .875);
-  --font-size-md: calc(var(--font-size) * 1.125);
+  --font-size-md: calc(var(--font-size) * 1.06);
   --font-size-lg: calc(var(--font-size) * 1.69);
   --font-size-xl: calc(var(--font-size) * 2.25);
   --font-size-xxl: calc(var(--font-size) * 2.75);
@@ -35,6 +36,7 @@
 
   // Line height
   --line-height: 1;
+  --line-height-lg: 1.4;
 
   // Letter spacing
   --letter-spacing: normal;
