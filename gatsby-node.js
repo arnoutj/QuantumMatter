@@ -83,22 +83,27 @@ exports.createPages = ({ graphql, actions }) => {
         }
       }
     `).then((result) => {
-      result.data.allDatoCmsLab.edges.map(({ node: lab }) => {
+      const slugs = [ 
+        null, // for general overviews
+        ...result.data.allDatoCmsLab.edges.map(({ node: lab }) => lab.slug)
+      ];
+      console.log(slugs);
+      slugs.map(slug => {
         // Home
         createPage({
-          path: `${lab.slug}`,
+          path: `${slug || "/"}`,
           component: path.resolve(`./src/templates/home.js`),
           context: {
-            slug: lab.slug
+            slug: slug
           }
         });
 
         // News
         createPage({
-          path: `${lab.slug}/news`,
+          path: `${slug || ""}/news`,
           component: path.resolve(`./src/templates/news-overview.js`),
           context: {
-            slug: lab.slug
+            slug: slug
           }
         });
       });

@@ -1,18 +1,16 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../components/Layout/layout';
-import { Grid, Row, Col } from 'react-flexbox-grid';
+import { Row, Col } from 'react-flexbox-grid';
 
 const HomePage = ({ data: { lab }, pageContext }) => (
   <Layout pageContext={pageContext}>
-    <Grid>
-      <Row center="sm">
-        <Col xs={12} md={7}>
-          <h1>{lab.title} Lab</h1>
-          <p>{lab.description}</p>
-        </Col>
-      </Row>
-    </Grid>
+    <Row center="sm">
+      <Col xs={12} md={7}>
+        <h1>{lab.title} Lab</h1>
+        <p>{lab.description}</p>
+      </Col>
+    </Row>
   </Layout>
 );
 
