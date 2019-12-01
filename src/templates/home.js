@@ -6,9 +6,9 @@ import { Grid, Row, Col } from 'react-flexbox-grid';
 const HomePage = ({ data: { lab }, pageContext }) => (
   <Layout pageContext={pageContext}>
     <Grid>
-      <Row>
-        <Col>
-          <h1>Homepage of {lab.title}</h1>
+      <Row center="sm">
+        <Col xs={12} md={7}>
+          <h1>{lab.title} Lab</h1>
           <p>{lab.description}</p>
         </Col>
       </Row>

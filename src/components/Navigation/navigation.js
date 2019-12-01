@@ -6,10 +6,12 @@ class Navigation extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      menuItems: [ //@TODO: make dynamic
+      menuItems: [
+        //@TODO: make dynamic
         {
           slug: 'members',
-          label: 'Members'
+          label: 'Members',
+          labPage: true
         },
         {
           slug: 'highlights',
@@ -32,31 +34,35 @@ class Navigation extends React.Component {
           slug: 'contact',
           label: 'Contact',
           generalPage: true
-        },
+        }
       ]
     };
   }
 
   getUrl(path, generalPage) {
-    return this.props.slug && !generalPage ? `/${this.props.slug}/${path}` : `/${path}`;
+    return this.props.slug && !generalPage
+      ? `/${this.props.slug}/${path}`
+      : `/${path}`;
   }
 
   render() {
     return (
       <nav className="navigation" role="navigation">
         <ul className="menu" role="menubar" aria-label="Navigation">
-          {this.state.menuItems.map((item, key) => (
-            <li key={key}>
-              <a
-                className="menu_item"
-                role="menuitem"
-                tabIndex={key}
-                href={this.getUrl(item.slug, item.generalPage)}
-              >
-                {item.label}
-              </a>
-            </li>
-          ))}
+          {this.state.menuItems
+            .filter(item => this.props.slug ? true : !item.labPage)
+            .map((item, key) => (
+              <li key={key}>
+                <a
+                  className="menu_item"
+                  role="menuitem"
+                  tabIndex={key}
+                  href={this.getUrl(item.slug, item.generalPage)}
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))}
         </ul>
       </nav>
     );

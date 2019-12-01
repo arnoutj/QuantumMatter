@@ -5,7 +5,7 @@ import '../Button/button.scss';
 
 const LabNavigation = ({ activeLab }) => (
   <div className="labnavigation">
-    <button class="btn btn--small">
+    <button className="btn btn--small">
       {activeLab ? activeLab : 'All groups'}
       <ArrowDown />
     </button>
