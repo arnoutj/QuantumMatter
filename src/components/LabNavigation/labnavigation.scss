@@ -1,3 +1,29 @@
 .labnavigation {
+  position: relative;
   margin-left: auto;
+}
+
+.labnavigation_menu {
+  position: absolute;
+  width: 100%;
+  top: calc(100% + var(--spacing-xs));
+  left: var(--spacing-xs);
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-primary-d10);
+  z-index: 10;
+
+  li {
+    padding: var(--spacing);
+  }
+}
+
+.labnavigation_menu-item {
+  color: white;
+
+  &:hover,
+  &:focus {
+    color: white;
+  }
 }

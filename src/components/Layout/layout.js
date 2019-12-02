@@ -29,12 +29,18 @@ const TemplateWrapper = ({ children, pageContext }) => (
             ...GatsbyDatoCmsFaviconMetaTags
           }
         }
+        allDatoCmsLab {
+          nodes {
+            title
+            slug
+          }
+        }
       }
     `}
     render={(data) => (
       <div className={`page-container ${labThemeClasses[pageContext ? pageContext.slug : null]}`}>
         <HelmetDatoCms favicon={data.datoCmsSite.faviconMetaTags} />
-        <Header pageContext={pageContext} />
+        <Header pageContext={pageContext} labs={data.allDatoCmsLab.nodes}/>
         <main role="main">
           <Grid>
             {children}

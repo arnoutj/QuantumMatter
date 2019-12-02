@@ -8,7 +8,7 @@ import LabNavigation from '../LabNavigation/labnavigation';
 
 import './header.scss';
 
-const Header = ({ pageContext }) => (
+const Header = ({ labs, pageContext }) => (
   <StaticQuery
     query={graphql`
       query HeaderQuery {
@@ -28,7 +28,7 @@ const Header = ({ pageContext }) => (
                 <Link to="/" alt={data.datoCmsSite.globalSeo.siteName}>
                   <Logo width="250" />
                 </Link>
-                <LabNavigation activeLab={pageContext ? pageContext.slug : null } />
+                <LabNavigation labs={labs} slug={pageContext ? pageContext.slug : null } />
                 <Navigation slug={pageContext ? pageContext.slug : null} />
               </div>
             </Col>
