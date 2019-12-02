@@ -11,13 +11,6 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: `${__dirname}/src/assets/images`,
-      },
-    },
-    {
       resolve: "gatsby-plugin-react-svg",
       options: {
         rule: {
