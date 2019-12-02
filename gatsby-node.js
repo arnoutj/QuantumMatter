@@ -38,6 +38,7 @@ exports.createPages = ({ graphql, actions }) => {
           allDatoCms${type.datoCmsModelName} {
             edges {
               node {
+                id
                 slug
                 lab {
                   slug
@@ -56,6 +57,7 @@ exports.createPages = ({ graphql, actions }) => {
                 }`, // Prefix lab articles with lab slug (.e.g. /de-visser/news/article-name)
                 component: path.resolve(`./src/templates/${type.fileName}.js`),
                 context: {
+                  id: article.id,
                   slug: article.lab ? article.lab.slug : null // Slug will be used for querying article
                 }
               });
@@ -87,14 +89,13 @@ exports.createPages = ({ graphql, actions }) => {
         null, // for general overviews
         ...result.data.allDatoCmsLab.edges.map(({ node: lab }) => lab.slug)
       ];
-      console.log(slugs);
       slugs.map(slug => {
         // Home
         createPage({
           path: `${slug || "/"}`,
           component: path.resolve(`./src/templates/home.js`),
           context: {
-            slug: slug
+            slug: slug,
           }
         });
 
@@ -103,7 +104,7 @@ exports.createPages = ({ graphql, actions }) => {
           path: `${slug || ""}/news`,
           component: path.resolve(`./src/templates/news-overview.js`),
           context: {
-            slug: slug
+            slug: slug,
           }
         });
       });

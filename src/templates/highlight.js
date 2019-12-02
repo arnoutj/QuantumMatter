@@ -2,15 +2,15 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../components/Layout/layout';
 
-export default ({ data, pageContext }) => (
+export default ({ data : { highlightItem }, pageContext }) => (
   <Layout pageContext={pageContext}>
-    <h1>{data.datoCmsHighlight.title}</h1>
+    <h1>{highlightItem.title}</h1>
   </Layout>
 );
 
 export const query = graphql`
-  query HighlightQuery($slug: String) {
-    datoCmsHighlight(lab: { slug: {eq: $slug} }) {
+  query HighlightQuery($id: String) {
+    highlightItem: datoCmsHighlight(id: { eq: $id }) {
       title
     }
   }

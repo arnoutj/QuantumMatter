@@ -10,6 +10,13 @@ import Footer from '../Footer/footer';
 import '../../styles/global.scss';
 import './layout.scss';
 
+const labThemeClasses = {
+  "null": "theme-purple",
+  "golden": "theme-cyan",
+  "van-heumen": "theme-orange",
+  "de-visser": "theme-green"
+};
+
 const TemplateWrapper = ({ children, pageContext }) => (
   <StaticQuery
     query={graphql`
@@ -25,7 +32,7 @@ const TemplateWrapper = ({ children, pageContext }) => (
       }
     `}
     render={(data) => (
-      <div className="page-container theme-purple">
+      <div className={`page-container ${labThemeClasses[pageContext ? pageContext.slug : null]}`}>
         <HelmetDatoCms favicon={data.datoCmsSite.faviconMetaTags} />
         <Header pageContext={pageContext} />
         <main role="main">

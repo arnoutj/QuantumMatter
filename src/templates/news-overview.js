@@ -3,16 +3,23 @@ import { graphql } from 'gatsby';
 import Layout from '../components/Layout/layout';
 import { Row, Col } from 'react-flexbox-grid';
 
-const NewsPage = ({ data }) => (
-  <Layout>
+const NewsPage = ({ data, pageContext }) => (
+  <Layout pageContext={pageContext}>
     <Row>
       <Col xs={12} md={6} mdOffset={3}>
-        {data.allDatoCmsNews.edges.map(({ node: article }, key) => (
+        {data.allDatoCmsNews.edges.map(({ node: item }, key) => (
           <a
             key={key}
-            href={`${article.lab ? article.lab.slug : ''}/news/${article.slug}`}
+            href={`${item.lab ? `/${item.lab.slug}` : ``}/news/${item.slug}`}
           >
-            <h2>{article.title}</h2>
+            <h2>{item.title}</h2>
+            {item.content && (
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: item.content[0].textblockNode.childMarkdownRemark.html
+                }}
+              />
+            )}
           </a>
         ))}
       </Col>
@@ -32,6 +39,16 @@ export const query = graphql`
           slug
           lab {
             slug
+          }
+          content {
+            ... on DatoCmsParagraph {
+              id
+              textblockNode {
+                childMarkdownRemark {
+                  html
+                }
+              }
+            }
           }
         }
       }

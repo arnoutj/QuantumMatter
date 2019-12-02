@@ -8,10 +8,16 @@ export default ({ data: { newsItem }, pageContext }) => (
       <Col xs={12} md={6} mdOffset={3}>
         <h2>{newsItem.title}</h2>
         {newsItem.content.map((item, key) => (
-          <p key={key}>
-            {item.textblock}
+          <div key={key}>
+            {item.textblockNode && (
+              <p
+                dangerouslySetInnerHTML={{
+                  __html: item.textblockNode.childMarkdownRemark.html
+                }}
+              />
+            )}
             {item.file && <img src={item.file.fluid.src} alt={item.file.alt} />}
-          </p>
+          </div>
         ))}
       </Col>
     </Row>
@@ -19,12 +25,16 @@ export default ({ data: { newsItem }, pageContext }) => (
 );
 
 export const query = graphql`
-  query NewsQuery($slug: String) {
-    newsItem: datoCmsNews(lab: { slug: { eq: $slug } }) {
+  query NewsQuery($id: String) {
+    newsItem: datoCmsNews(id: { eq: $id }) {
       title
       content {
         ... on DatoCmsParagraph {
-          textblock
+          textblockNode {
+            childMarkdownRemark {
+              html
+            }
+          }
         }
         ... on DatoCmsImage {
           file {

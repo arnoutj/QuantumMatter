@@ -2,15 +2,15 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../components/Layout/layout';
 
-export default ({ data, pageContext }) => (
+export default ({ data: { researchItem }, pageContext }) => (
   <Layout pageContext={pageContext}>
-    <h1>{data.datoCmsResearchitem.title}</h1>
+    <h1>{researchItem.title}</h1>
   </Layout>
 );
 
 export const query = graphql`
-  query ResearchQuery($slug: String) {
-    datoCmsResearchitem(lab: { slug: {eq: $slug} }) {
+  query ResearchQuery($id: String) {
+    researchItem: datoCmsResearchitem(id: { eq: $id }) {
       title
     }
   }
