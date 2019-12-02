@@ -1,19 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
+import useOutsideClick from '../../utils/clickoutside';
+
 import ArrowDown from '../../assets/svg/arrow-down.svg';
-import onClickOutside from 'react-onclickoutside';
 
 import './labnavigation.scss';
 import '../Button/button.scss';
 
 const LabNavigation = ({ labs, slug }) => {
+  const [isMenuVisible, setIsMenuVisible] = useState(false);
+  const ref = useRef();
+
   labs = [...labs, { title: 'All groups', slug: null }];
   const activeLab = labs.find((lab) => lab.slug === slug);
 
-  const [isMenuVisible, setIsMenuVisible] = useState(false);
-  LabNavigation.handleClickOutside = () => setIsMenuVisible(false);
+  useOutsideClick(ref, () => setIsMenuVisible(false));
 
   return (
-    <div className="labnavigation">
+    <div className="labnavigation" ref={ref}>
       <button
         className="btn btn--small"
         onClick={() => setIsMenuVisible(!isMenuVisible)}
@@ -45,8 +48,4 @@ const LabNavigation = ({ labs, slug }) => {
   );
 };
 
-const clickOutsideConfig = {
-  handleClickOutside: () => LabNavigation.handleClickOutside
-};
-
-export default onClickOutside(LabNavigation, clickOutsideConfig);
+export default LabNavigation;
