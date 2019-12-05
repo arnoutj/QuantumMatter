@@ -1,6 +1,6 @@
 .member {
   position: relative;
-  margin-top: calc(6.25rem + var(--spacing-lg)); //6.25 is 50% of member-image
+  margin-top: calc(5rem + var(--spacing-lg)); //6.25 is 50% of member-image
   margin-bottom: var(--spacing-xl);
   padding: var(--spacing-lg);
   box-shadow: 0 0 2px rgba(black, 0.1),
@@ -8,17 +8,33 @@
 
   .member-image {
     position: absolute;
-    top: -50%;
+    top: -5rem;
     left: 50%;
     transform: translate3d(-50%, 0, 0);
   }
 }
 
 .member_title {
+  display: block;
   padding-top: calc(6.25rem - var(--spacing-lg)); //Correct for member-image width and member padding
   background: none;
 }
 
+.member_subtitle {
+  display: block;
+  font-weight: var(--font-weight-bold);
+}
+
 .member_text {
-  margin: var(--spacing-md) 0;
+  white-space: pre-line;
+
+  p {
+    margin-top: var(--spacing-md);
+    margin-bottom: 0;
+  }
+
+  a {
+    margin-top: var(--spacing);
+    display: block;
+  }
 }

@@ -6,30 +6,38 @@ import Layout from '../components/Layout/layout';
 import Section from '../components/Section/section';
 import Member from '../components/Member/member';
 
-const MembersPage = ({ data, pageContext, location }) => (
-  <Layout pageContext={pageContext}>
-    {data.allDatoCmsRole.nodes.map((role, key) => (
-      <Section key={key}>
-        <Row>
-          <Col xs={12} md={8} mdOffset={2}>
-            <div className="role-group">
-              <h2>{role.title}</h2>
-              <Row>
-                {data.allDatoCmsMember.nodes
-                  .filter((member) => member.role.name === role.name)
-                  .map((member, key) => (
-                    <Col xs={6} lg={4} key={key}>
-                      <Member data={member} />
-                    </Col>
-                  ))}
-              </Row>
-            </div>
-        </Col>
-      </Row>
-    </Section>
-    ))}
-  </Layout>
-);
+const MembersPage = ({ data, pageContext }) => {
+  // Create groups per role only when they have members
+  const roleGroups = data.allDatoCmsRole.nodes.filter((role) => {
+    role.members = data.allDatoCmsMember.nodes.filter(
+      (member) => member.role.name === role.name
+    );
+    return role.members.length;
+  });
+  return (
+    <Layout pageContext={pageContext}>
+      <Section>
+        {roleGroups
+          .map((roleGroup, key) => (
+            <Row key={key}>
+              <Col xs={12} md={8} mdOffset={2}>
+                <div className="role-group">
+                  <h2>{roleGroup.title}</h2>
+                  <Row>
+                    {roleGroup.members.map((member, key) => (
+                      <Col xs={6} lg={4} key={key}>
+                        <Member data={member} />
+                      </Col>
+                    ))}
+                  </Row>
+                </div>
+              </Col>
+            </Row>
+          ))}
+      </Section>
+    </Layout>
+  );
+};
 
 export default MembersPage;
 
@@ -45,6 +53,7 @@ export const query = graphql`
       nodes {
         name
         description
+        contact
         image: photo {
           fixed(width: 150) {
             ...GatsbyDatoCmsFixed
@@ -53,6 +62,8 @@ export const query = graphql`
         role {
           name
         }
+        urlUva
+        urlPersonal
       }
     }
   }
