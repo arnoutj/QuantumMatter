@@ -128,6 +128,15 @@ exports.createPages = ({ graphql, actions }) => {
           }
         });
 
+        // Publications
+        createPage({
+          path: `${slug || ""}/publications`,
+          component: path.resolve(`./src/templates/publications.js`),
+          context: {
+            slug: slug,
+          }
+        });
+
         // News
         createPage({
           path: `${slug || ""}/news`,

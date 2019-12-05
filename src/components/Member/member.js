@@ -24,8 +24,8 @@ const Member = ({ data }) => {
             }}
           />
         )}
-        {data.urlUva && <a href={data.urlUva} alt={`Personal UvA page of ${data.name}`} target="_blank">UvA page</a>}
-        {data.urlPersonal && <a href={data.urlPersonal} alt={`Website of ${data.name}`} target="_blank">Website</a>}
+        {data.urlUva && <a href={data.urlUva} alt={`Personal UvA page of ${data.name}`}>UvA page</a>}
+        {data.urlPersonal && <a href={data.urlPersonal} alt={`Website of ${data.name}`}>Website</a>}
       </div>
     </div>
   );
