@@ -1,5 +1,6 @@
 import React from 'react';
 import Layout from '../components/Layout/layout';
+import Img from 'gatsby-image';
 import { Row, Col } from 'react-flexbox-grid';
 import Section from '../components/Section/section';
 
@@ -8,7 +9,16 @@ export default ({ data: { newsItem }, pageContext }) => (
     <Section>
       <Row>
         <Col xs={12} md={6} mdOffset={3}>
+          {newsItem.image && (
+            <Img
+              placeholderStyle={{ backgroundColor: `var(--color-gray)` }}
+              fluid={newsItem.image.fluid}
+            />
+          )}
           <h2>{newsItem.title}</h2>
+          <p>
+            <strong>{newsItem.intro}</strong>
+          </p>
           {newsItem.content.map((item, key) => (
             <div key={key}>
               {item.textblockNode && (
@@ -18,7 +28,9 @@ export default ({ data: { newsItem }, pageContext }) => (
                   }}
                 />
               )}
-              {item.file && <img src={item.file.fluid.src} alt={item.file.alt} />}
+              {item.file && (
+                <img src={item.file.fluid.src} alt={item.file.alt} />
+              )}
             </div>
           ))}
         </Col>
@@ -31,6 +43,12 @@ export const query = graphql`
   query NewsQuery($id: String) {
     newsItem: datoCmsNews(id: { eq: $id }) {
       title
+      intro
+      image {
+        fluid {
+          ...GatsbyDatoCmsFluid
+        }
+      }
       content {
         ... on DatoCmsParagraph {
           textblockNode {
