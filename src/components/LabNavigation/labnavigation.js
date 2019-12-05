@@ -1,6 +1,5 @@
 import React, { useState, useRef } from 'react';
 import useOutsideClick from '../../utils/clickoutside';
-
 import ArrowDown from '../../assets/svg/arrow-down.svg';
 
 import './labnavigation.scss';

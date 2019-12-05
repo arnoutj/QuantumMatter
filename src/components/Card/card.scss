@@ -1,0 +1,16 @@
+.card {
+  margin-bottom: calc(var(--spacing-xl) * 2);
+
+  .gatsby-image-wrapper {
+    margin-bottom: var(--spacing-lg);
+  }
+}
+
+.card_text {
+  margin: var(--spacing-md) 0;
+}
+
+.card_button {
+  display: table;
+  margin: 0 auto;
+}
