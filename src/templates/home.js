@@ -46,8 +46,7 @@ export const query = graphql`
         description
         image: photo {
           fixed(width: 200) {
-            width
-            src
+            ...GatsbyDatoCmsFixed
           }
         }
       }

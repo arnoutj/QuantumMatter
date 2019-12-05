@@ -1,9 +1,10 @@
 import React from 'react';
+import { Col, Row } from 'react-flexbox-grid';
+
 import Section from '../Section/section';
+import MemberImage from '../MemberImage/memberImage';
 
 import "./memberLarge.scss";
-import { Col, Row } from 'react-flexbox-grid';
-import MemberImage from '../MemberImage/memberImage';
 
 const MemberLarge = ({ member }) => (
     <Section className="dark">

@@ -1,10 +1,11 @@
 import React from 'react';
 import Img from "gatsby-image";
+
 import "./memberImage.scss";
 
 const MemberImage = ({ image }) => (
     <div className="member-image">
-        {image && <Img fadeIn="true" placeholderStyle={{ backgroundColor: `var(--color-gray)` }} fixed={image.fixed} height="150" />}
+        {image && <Img placeholderStyle={{ backgroundColor: `var(--color-gray)` }} fixed={image.fixed} height="150" />}
     </div>
 );
 

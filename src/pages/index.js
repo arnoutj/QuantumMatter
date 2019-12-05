@@ -1,21 +1,30 @@
 import React from 'react';
-import Layout from '../components/Layout/layout';
+import { graphql } from 'gatsby';
 import { HelmetDatoCms } from 'gatsby-source-datocms';
 import { Row, Col } from 'react-flexbox-grid';
 
-const IndexPage = ({ data: { home } }) => (
+import Layout from '../components/Layout/layout';
+import Section from '../components/Section/section';
+
+const IndexPage = ({ data }) => (
   <Layout>
-    <HelmetDatoCms seo={home.seoMetaTags} />
-    <Row center="sm">
-      <Col xs={12} md={7}>
-        <h1>{home.title}</h1>
-        <div
-          dangerouslySetInnerHTML={{
-            __html: home.introTextNode.childMarkdownRemark.html
-          }}
-        />
-      </Col>
-    </Row>
+    <HelmetDatoCms seo={data.home.seoMetaTags} />
+    <Section>
+      <Row center="sm">
+        <Col xs={12} md={7}>
+          {data && data.home && (
+            <div>
+              <h1>{data.home.title}</h1>
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: data.home.introTextNode.childMarkdownRemark.html
+                }}
+              />
+            </div>
+          )}
+        </Col>
+      </Row>
+    </Section>
   </Layout>
 );
 
