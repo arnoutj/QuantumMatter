@@ -4,6 +4,7 @@
   position: relative;
   padding-top: var(--spacing-md);
   padding-bottom: var(--spacing-md);
+  background-color: white;
 
   @include media-breakpoint-down(md) {
     position: fixed;
@@ -48,9 +49,9 @@
   }
 
   @include media-breakpoint-down(md) {
-    margin-bottom: var(--spacing);
-
     .mobile-nav-visible & {
+      margin-bottom: var(--spacing);
+      
       path {
         fill: white;
       }

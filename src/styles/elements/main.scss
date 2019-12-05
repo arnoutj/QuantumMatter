@@ -1,9 +1,7 @@
 @import "../mixins/responsive.scss";
 
 main {
-  padding-top: 7rem;
-
-  @include media-breakpoint-up(md) {
+  @include media-breakpoint-down(md) {
     padding-top: 5rem;
   }
 }

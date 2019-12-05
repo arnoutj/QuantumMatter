@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
 import { HelmetDatoCms } from 'gatsby-source-datocms';
-import { Grid } from 'react-flexbox-grid';
 
 import Header from '../Header/header';
 import Footer from '../Footer/footer';
@@ -42,9 +41,7 @@ const TemplateWrapper = ({ children, pageContext }) => (
         <HelmetDatoCms favicon={data.datoCmsSite.faviconMetaTags} />
         <Header pageContext={pageContext} labs={data.allDatoCmsLab.nodes}/>
         <main role="main">
-          <Grid>
-            {children}
-          </Grid>
+          {children}
         </main>
         <Footer />
       </div>

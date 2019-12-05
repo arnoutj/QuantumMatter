@@ -1,0 +1,23 @@
+.member-image {
+  position: relative;
+  display: inline-block;
+
+  img {
+    filter: grayscale(100%);
+  }
+
+  // Crop image height
+  .gatsby-image-wrapper {
+    height: 200px;
+  }
+
+  &::after {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    box-shadow: 0.5rem 0.5rem 0 0 var(--color-primary);
+  }
+}
