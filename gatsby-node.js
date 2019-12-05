@@ -108,16 +108,16 @@ exports.createPages = ({ graphql, actions }) => {
           }
         });
 
-        // Members
-        // if(slug) {
-        //   createPage({
-        //     path: `${slug}/members`,
-        //     component: path.resolve(`./src/templates/members-overview.js`),
-        //     context: {
-        //       slug: slug,
-        //     }
-        //   });
-        // }
+        // Members (only for labs)
+        if(slug) {
+          createPage({
+            path: `${slug}/members`,
+            component: path.resolve(`./src/templates/members-overview.js`),
+            context: {
+              slug: slug,
+            }
+          });
+        }
 
         // News
         createPage({

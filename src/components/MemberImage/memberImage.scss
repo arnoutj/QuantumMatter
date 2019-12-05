@@ -5,11 +5,11 @@
   img {
     filter: grayscale(100%);
   }
+}
 
-  // Crop image height
-  .gatsby-image-wrapper {
-    height: 200px;
-  }
+.member-image_inner {
+  overflow: hidden;
+  border: 1px solid var(--color-gray-d20);
 
   &::after {
     position: absolute;

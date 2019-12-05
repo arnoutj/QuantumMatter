@@ -41,7 +41,6 @@ export const query = graphql`
       title
       description
       principal {
-        id
         name
         description
         image: photo {

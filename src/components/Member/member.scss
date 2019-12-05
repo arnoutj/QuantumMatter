@@ -1,0 +1,24 @@
+.member {
+  position: relative;
+  margin-top: calc(6.25rem + var(--spacing-lg)); //6.25 is 50% of member-image
+  margin-bottom: var(--spacing-xl);
+  padding: var(--spacing-lg);
+  box-shadow: 0 0 2px rgba(black, 0.1),
+              0 1px 4px rgba(black, 0.1);
+
+  .member-image {
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.member_title {
+  padding-top: calc(6.25rem - var(--spacing-lg)); //Correct for member-image width and member padding
+  background: none;
+}
+
+.member_text {
+  margin: var(--spacing-md) 0;
+}

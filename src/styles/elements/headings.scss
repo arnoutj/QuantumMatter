@@ -1,5 +1,7 @@
 @mixin heading {
-  display: inline;
+  display: inline-block;
+  margin: 0;
+  margin-bottom: var(--spacing);
   position: relative;
   font-family: var(--font-secondary);
   text-decoration: none;

@@ -5,7 +5,9 @@ import "./memberImage.scss";
 
 const MemberImage = ({ image }) => (
     <div className="member-image">
-        {image && <Img placeholderStyle={{ backgroundColor: `var(--color-gray)` }} fixed={image.fixed} height="150" />}
+        <div className="member-image_inner" style={{height: image.fixed.width}}>
+            {image && <Img placeholderStyle={{ backgroundColor: `var(--color-gray)` }} fixed={image.fixed} />}
+        </div>
     </div>
 );
 
