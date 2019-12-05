@@ -1,21 +1,38 @@
+@import '../../styles/mixins/responsive.scss';
+
 .labnavigation {
   position: relative;
   margin-left: auto;
+
+  @include media-breakpoint-down(md) {
+    display: none;
+    text-align: center;
+
+    .mobile-nav-visible & {
+      display: block;
+    }
+  }
 }
 
 .labnavigation_menu {
   position: absolute;
-  width: calc(100% - var(--spacing));
-  top: calc(100% + var(--spacing-xs));
-  left: calc(var(--spacing-xs) + 1px);
   list-style-type: none;
-  margin: 0;
+  top: calc(100% + var(--spacing-xs));
+  left: 50%;
+  transform: translate3d(-50%, 0, 0);
+  margin-top: 0;
+  margin-left: -0.15rem;
   padding: 0;
   background-color: var(--color-primary-d10);
   z-index: 10;
 
   li {
     padding: var(--spacing);
+  }
+
+  @include media-breakpoint-up(lg) {
+    width: calc(100% - var(--spacing));
+    left: calc(var(--spacing-xs) + 1px);
   }
 }
 

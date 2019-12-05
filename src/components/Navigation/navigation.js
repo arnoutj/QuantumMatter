@@ -46,15 +46,16 @@ class Navigation extends React.Component {
   }
 
   render() {
+    //{`navigation-toggle ${this.props.mobileNavigationIsVisible ? 'is-active' : ''}`}
     return (
       <nav className="navigation" role="navigation">
-        <ul className="menu" role="menubar" aria-label="Navigation">
+        <ul className="navigation_menu" role="menubar" aria-label="Navigation">
           {this.state.menuItems
-            .filter(item => this.props.slug ? true : !item.labPage)
+            .filter((item) => (this.props.slug ? true : !item.labPage))
             .map((item, key) => (
               <li key={key}>
                 <a
-                  className="menu_item"
+                  className="navigation_menu-item"
                   role="menuitem"
                   tabIndex={key}
                   href={this.getUrl(item.slug, item.generalPage)}
@@ -64,6 +65,18 @@ class Navigation extends React.Component {
               </li>
             ))}
         </ul>
+        <button
+          className="navigation-toggle"
+          type="button"
+          aria-label="Menu"
+          aria-controls="navigation"
+          aria-expanded="false"
+          onClick={this.props.toggleNavigation}
+        >
+          <span className="navigation-toggle-box">
+            <span className="navigation-toggle-inner"></span>
+          </span>
+        </button>
       </nav>
     );
   }

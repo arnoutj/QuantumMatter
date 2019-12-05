@@ -1,10 +1,65 @@
+@import '../../styles/mixins/responsive.scss';
+
 .header {
-    padding-top: var(--spacing-lg);
-    padding-bottom: var(--spacing-lg);
+  position: relative;
+  padding-top: var(--spacing-md);
+  padding-bottom: var(--spacing-md);
+
+  @include media-breakpoint-down(md) {
+    position: fixed;
+    width: 100%;
+    z-index: 99;
+
+    &::after {
+      position: absolute;
+      content: '';
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: black;
+      opacity: 0;
+      z-index: -1;
+      transition: opacity 0.15s ease;
+    }
+
+    &.mobile-nav-visible {
+      &::after {
+        opacity: 1;
+      }
+    }
+  }
 }
 
 .header_wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @include media-breakpoint-down(md) {
+    display: block;
+  }
+}
+
+.header_logo {
+  .icon-white {
+    display: none;
+  }
+
+  @include media-breakpoint-down(md) {
+    margin-bottom: var(--spacing);
+
+    .mobile-nav-visible & {
+      path {
+        fill: white;
+      }
+      .icon-black {
+        display: none;
+      }
+      .icon-white {
+        display: block;
+      }
+    }
+  }
 }

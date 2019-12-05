@@ -1,7 +1,9 @@
-@import "../settings/breakpoints.scss";
+@import "../mixins/responsive.scss";
 
 main {
-  @media screen and (min-width: $breakpoint-sm) {
+  padding-top: 7rem;
+
+  @include media-breakpoint-up(md) {
     padding-top: 5rem;
   }
 }
