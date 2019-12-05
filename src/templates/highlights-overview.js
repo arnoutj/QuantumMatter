@@ -5,7 +5,7 @@ import { Row, Col } from 'react-flexbox-grid';
 import Layout from '../components/Layout/layout';
 import Section from '../components/Section/section';
 import Card from '../components/Card/card';
-import Message from '../components/Message/Message';
+import Message from '../components/Message/message';
 
 const HighlightsPage = ({ data, pageContext, location }) => (
   <Layout pageContext={pageContext}>

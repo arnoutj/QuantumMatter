@@ -4,7 +4,7 @@ import Layout from '../components/Layout/layout';
 import { Row, Col } from 'react-flexbox-grid';
 import Section from '../components/Section/section';
 import Card from '../components/Card/card';
-import Message from '../components/Message/Message';
+import Message from '../components/Message/message';
 
 const NewsPage = ({ data, pageContext, location }) => (
   <Layout pageContext={pageContext}>

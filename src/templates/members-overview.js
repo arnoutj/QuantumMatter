@@ -5,7 +5,7 @@ import { Row, Col } from 'react-flexbox-grid';
 import Layout from '../components/Layout/layout';
 import Section from '../components/Section/section';
 import Member from '../components/Member/member';
-import Message from '../components/Message/Message';
+import Message from '../components/Message/message';
 
 const MembersPage = ({ data, pageContext }) => {
   // Create groups per role only when they have members

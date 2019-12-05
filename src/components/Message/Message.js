@@ -1,8 +1,7 @@
 import React from 'react';
+import { Row, Col } from 'react-flexbox-grid';
 
 import "./message.scss";
-import Section from '../Section/section';
-import { Row, Col } from 'react-flexbox-grid';
 
 const Message = ({ showIfEmpty }) => {
     if(showIfEmpty && (!showIfEmpty.data || !showIfEmpty.data.length)) {

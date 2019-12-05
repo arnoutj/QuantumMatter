@@ -4,7 +4,7 @@ import { Row, Col } from 'react-flexbox-grid';
 
 import Layout from '../components/Layout/layout';
 import Section from '../components/Section/section';
-import Message from '../components/Message/Message';
+import Message from '../components/Message/message';
 
 export default ({ data, pageContext }) => (
   <Layout pageContext={pageContext}>
