@@ -3,9 +3,11 @@
   display: inline-block;
   margin-right: var(--spacing);
   padding: var(--spacing) var(--spacing-md);
+  padding-right: var(--spacing-xlg);
   font-family: var(--font-secondary);
   font-size: var(--font-size-md);
   font-weight: var(--font-weight-bold);
+  text-align: left;
   text-decoration: none;
   color: white;
   background-color: var(--color-primary);
@@ -13,12 +15,17 @@
   outline: 0;
   cursor: pointer;
 
+  svg {
+    position: absolute;
+    top: 50%;
+    right: var(--spacing);
+    transform: translate3d(0, -50%, 0);
+  }
+
   svg,
   path {
     fill: white;
     width: var(--font-size-xs);
-    padding-left: var(--spacing);
-    margin-bottom: 0.05rem;
   }
 
   &::after {
@@ -57,4 +64,5 @@
 
 .btn--small {
   padding: var(--spacing) var(--spacing);
+  padding-right: var(--spacing-lg);
 }

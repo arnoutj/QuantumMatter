@@ -9,7 +9,7 @@ const HomePage = ({ pageContext, data }) => (
       <Col xs={12} md={7}>
         {data && data.lab && (
           <div>
-            <h1>{data.lab.title} Lab</h1>
+            <h1>{data.lab.title}</h1>
             <p>{data.lab.description}</p>
           </div>
         )}
@@ -28,7 +28,7 @@ const HomePage = ({ pageContext, data }) => (
 export default HomePage;
 
 export const query = graphql`
-  query HomeQuery($slug: String!) {
+  query HomeQuery($slug: String) {
     lab: datoCmsLab(slug: { eq: $slug }) {
       title
       description

@@ -31,8 +31,10 @@
   }
 
   @include media-breakpoint-up(lg) {
-    width: calc(100% - var(--spacing));
+    min-width: calc(100% - var(--spacing));
     left: calc(var(--spacing-xs) + 1px);
+    margin: 0;
+    transform: none;
   }
 }
 
