@@ -3,22 +3,14 @@ import Layout from '../components/Layout/layout';
 import Img from 'gatsby-image';
 import { Row, Col } from 'react-flexbox-grid';
 import Section from '../components/Section/section';
+import Card from '../components/Card/card';
 
 export default ({ data: { newsItem }, pageContext }) => (
   <Layout pageContext={pageContext}>
     <Section>
       <Row>
         <Col xs={12} md={6} mdOffset={3}>
-          {newsItem.image && (
-            <Img
-              placeholderStyle={{ backgroundColor: `var(--color-gray)` }}
-              fluid={newsItem.image.fluid}
-            />
-          )}
-          <h2>{newsItem.title}</h2>
-          <p>
-            <strong>{newsItem.intro}</strong>
-          </p>
+          <Card data={newsItem} hideLink />
           {newsItem.content.map((item, key) => (
             <div key={key}>
               {item.textblockNode && (
