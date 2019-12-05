@@ -1,28 +1,29 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import Layout from '../components/Layout/layout';
 import { Row, Col } from 'react-flexbox-grid';
+
+import Layout from '../components/Layout/layout';
 import Section from '../components/Section/section';
 import Card from '../components/Card/card';
 
-const NewsPage = ({ data, pageContext, location }) => (
+const HighlightsPage = ({ data, pageContext, location }) => (
   <Layout pageContext={pageContext}>
     <Section>
       <Row>
         <Col xs={12} md={6} mdOffset={3}>
-          {data.allDatoCmsNews.nodes.map((node, key) => <Card key={key} data={node} location={location} />)}
+          {data.allDatoCmsHighlight.nodes.map((node, key) => <Card key={key} data={node} location={location} />)}
         </Col>
       </Row>
     </Section>
   </Layout>
 );
 
-export default NewsPage;
+export default HighlightsPage;
 
 export const query = graphql`
-  query NewsOverviewQuery($slug: String) {
-    allDatoCmsNews(filter: { lab: { slug: { eq: $slug } } }) {
-      nodes {
+  query HighlightsOverviewQuery($slug: String) {
+    allDatoCmsHighlight(filter: { lab: { slug: { eq: $slug } } }) {
+      nodes{
         title
         image {
           fluid {

@@ -1,6 +1,5 @@
 import React from 'react';
 import Layout from '../components/Layout/layout';
-import Img from 'gatsby-image';
 import { Row, Col } from 'react-flexbox-grid';
 import Section from '../components/Section/section';
 import Card from '../components/Card/card';

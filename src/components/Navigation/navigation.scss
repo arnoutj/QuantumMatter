@@ -52,7 +52,7 @@
     }
   }
 
-  &--active {
+  &.is-active {
     &::after {
       width: 100%;
     }

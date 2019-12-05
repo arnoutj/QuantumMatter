@@ -13,7 +13,7 @@ const articleTypes = {
   },
   highlight: {
     datoCmsModelName: 'Highlight',
-    slug: 'highlight',
+    slug: 'highlights',
     fileName: 'highlight'
   },
   research: {
@@ -98,6 +98,26 @@ exports.createPages = ({ graphql, actions }) => {
             slug: slug,
           }
         });
+
+        // Highlights
+        createPage({
+          path: `${slug || ""}/highlights`,
+          component: path.resolve(`./src/templates/highlights-overview.js`),
+          context: {
+            slug: slug,
+          }
+        });
+
+        // Members
+        // if(slug) {
+        //   createPage({
+        //     path: `${slug}/members`,
+        //     component: path.resolve(`./src/templates/members-overview.js`),
+        //     context: {
+        //       slug: slug,
+        //     }
+        //   });
+        // }
 
         // News
         createPage({

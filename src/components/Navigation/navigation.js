@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link } from 'gatsby';
 import './navigation.scss';
 
 class Navigation extends React.Component {
@@ -46,7 +46,6 @@ class Navigation extends React.Component {
   }
 
   render() {
-    //{`navigation-toggle ${this.props.mobileNavigationIsVisible ? 'is-active' : ''}`}
     return (
       <nav className="navigation" role="navigation">
         <ul className="navigation_menu" role="menubar" aria-label="Navigation">
@@ -54,14 +53,16 @@ class Navigation extends React.Component {
             .filter((item) => (this.props.slug ? true : !item.labPage))
             .map((item, key) => (
               <li key={key}>
-                <a
+                <Link
+                  to={this.getUrl(item.slug, item.generalPage)}
+                  partiallyActive={true}
                   className="navigation_menu-item"
+                  activeClassName="is-active"
                   role="menuitem"
                   tabIndex={key}
-                  href={this.getUrl(item.slug, item.generalPage)}
                 >
                   {item.label}
-                </a>
+                </Link>
               </li>
             ))}
         </ul>

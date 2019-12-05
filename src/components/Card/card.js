@@ -1,10 +1,11 @@
 import React from 'react';
 import Img from 'gatsby-image';
+import { Link } from 'gatsby';
 
 import './card.scss';
 
-const Card = ({ data, hideLink }) => {
-  const url = `${data.lab ? `/${data.lab.slug}` : ``}/news/${data.slug}`;
+const Card = ({ data, location }) => {
+  const url = location ? `${location.pathname}/${data.slug}` : null;
   return (
     <div className="card">
       {data.image && (
@@ -13,9 +14,13 @@ const Card = ({ data, hideLink }) => {
           fluid={data.image.fluid}
         />
       )}
-      <a href={url}>
+      {url ? (
+        <Link to={url}>
+          <h2>{data.title}</h2>
+        </Link>
+      ) : (
         <h2>{data.title}</h2>
-      </a>
+      )}
       {data.intro && (
         <p
           className="card_text"
@@ -24,11 +29,11 @@ const Card = ({ data, hideLink }) => {
           }}
         />
       )}
-      {!hideLink && (
+      {url && (
         <div className="card_button-wrapper">
-          <a className="btn" href={url}>
+          <Link className="btn" to={url}>
             Read more
-          </a>
+          </Link>
         </div>
       )}
     </div>
