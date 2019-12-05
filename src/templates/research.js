@@ -4,6 +4,7 @@ import { Row, Col } from 'react-flexbox-grid';
 
 import Layout from '../components/Layout/layout';
 import Section from '../components/Section/section';
+import Message from '../components/Message/Message';
 
 export default ({ data, pageContext }) => (
   <Layout pageContext={pageContext}>
@@ -19,6 +20,10 @@ export default ({ data, pageContext }) => (
           ))}
         </Col>
       </Row>
+      <Message showIfEmpty={{
+        data: data.allDatoCmsResearchitem.nodes,
+        type: "research topics" 
+      }}/>
     </Section>
   </Layout>
 );

@@ -3,7 +3,6 @@ import useOutsideClick from '../../utils/clickoutside';
 import ArrowDown from '../../assets/svg/arrow-down.svg';
 
 import './labnavigation.scss';
-import '../Button/button.scss';
 
 const LabNavigation = ({ labs, slug }) => {
   const [isMenuVisible, setIsMenuVisible] = useState(false);

@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../components/Layout/layout';
 import { Row, Col } from 'react-flexbox-grid';
-import MemberLarge from '../components/MemberLarge/memberLarge';
+import MemberSection from '../components/MemberSection/memberSection';
 import Section from '../components/Section/section';
 
 const HomePage = ({ pageContext, data }) => (
@@ -29,7 +29,7 @@ const HomePage = ({ pageContext, data }) => (
         </Col>
       </Row>
     </Section>
-    {data.lab && data.lab.principal && (<MemberLarge member={data.lab.principal} />)}
+    {data.lab && data.lab.principal && (<MemberSection member={data.lab.principal} />)}
   </Layout>
 );
 

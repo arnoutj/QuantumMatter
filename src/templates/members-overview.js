@@ -5,6 +5,7 @@ import { Row, Col } from 'react-flexbox-grid';
 import Layout from '../components/Layout/layout';
 import Section from '../components/Section/section';
 import Member from '../components/Member/member';
+import Message from '../components/Message/Message';
 
 const MembersPage = ({ data, pageContext }) => {
   // Create groups per role only when they have members
@@ -17,23 +18,28 @@ const MembersPage = ({ data, pageContext }) => {
   return (
     <Layout pageContext={pageContext}>
       <Section>
-        {roleGroups
-          .map((roleGroup, key) => (
-            <Row key={key}>
-              <Col xs={12} md={8} mdOffset={2}>
-                <div className="role-group">
-                  <h2>{roleGroup.title}</h2>
-                  <Row>
-                    {roleGroup.members.map((member, key) => (
-                      <Col xs={6} lg={4} key={key}>
-                        <Member data={member} />
-                      </Col>
-                    ))}
-                  </Row>
-                </div>
-              </Col>
-            </Row>
-          ))}
+        {roleGroups.map((roleGroup, key) => (
+          <Row key={key}>
+            <Col xs={12} md={8} mdOffset={2}>
+              <div className="role-group">
+                <h2>{roleGroup.title}</h2>
+                <Row>
+                  {roleGroup.members.map((member, key) => (
+                    <Col xs={6} lg={4} key={key}>
+                      <Member data={member} />
+                    </Col>
+                  ))}
+                </Row>
+              </div>
+            </Col>
+          </Row>
+        ))}
+        <Message
+          showIfEmpty={{
+            data: roleGroups,
+            type: 'members'
+          }}
+        />
       </Section>
     </Layout>
   );

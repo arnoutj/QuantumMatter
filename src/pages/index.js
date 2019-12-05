@@ -5,6 +5,7 @@ import { Row, Col } from 'react-flexbox-grid';
 
 import Layout from '../components/Layout/layout';
 import Section from '../components/Section/section';
+import {MemberSectionColumns } from '../components/MemberSection/memberSection';
 
 const IndexPage = ({ data }) => (
   <Layout>
@@ -25,6 +26,13 @@ const IndexPage = ({ data }) => (
         </Col>
       </Row>
     </Section>
+    {data.labs && (
+      <MemberSectionColumns
+        members={data.labs.nodes
+          .filter((lab) => lab.principal)
+          .map((lab) => lab.principal)}
+      />
+    )}
   </Layout>
 );
 
@@ -40,6 +48,19 @@ export const query = graphql`
       introTextNode {
         childMarkdownRemark {
           html
+        }
+      }
+    }
+    labs: allDatoCmsLab {
+      nodes {
+        principal {
+          name
+          description
+          image: photo {
+            fixed(width: 150) {
+              ...GatsbyDatoCmsFixed
+            }
+          }
         }
       }
     }
