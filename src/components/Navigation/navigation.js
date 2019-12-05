@@ -18,6 +18,11 @@ class Navigation extends React.Component {
           label: 'Highlights'
         },
         {
+          slug: 'research',
+          label: 'Research',
+          labPage: true
+        },
+        {
           slug: 'publications',
           label: 'Publications'
         },

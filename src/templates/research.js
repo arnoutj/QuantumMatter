@@ -1,17 +1,35 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import Layout from '../components/Layout/layout';
+import { Row, Col } from 'react-flexbox-grid';
 
-export default ({ data: { researchItem }, pageContext }) => (
+import Layout from '../components/Layout/layout';
+import Section from '../components/Section/section';
+
+export default ({ data, pageContext }) => (
   <Layout pageContext={pageContext}>
-    <h1>{researchItem.title}</h1>
+    <Section>
+      <Row>
+        <Col xs={12} md={6} mdOffset={3}>
+          {data.allDatoCmsResearchitem.nodes.map((item, key) => (
+            <div key={key}>
+              <h2>{item.title}</h2>
+              <p>{item.content}</p>
+              <hr />
+            </div>
+          ))}
+        </Col>
+      </Row>
+    </Section>
   </Layout>
 );
 
 export const query = graphql`
-  query ResearchQuery($id: String) {
-    researchItem: datoCmsResearchitem(id: { eq: $id }) {
-      title
+  query ResearchQuery($slug: String) {
+    allDatoCmsResearchitem(filter: { lab: { slug: { eq: $slug } } }) {
+      nodes {
+        title
+        content
+      }
     }
   }
 `;

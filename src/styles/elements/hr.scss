@@ -1,0 +1,7 @@
+hr {
+  margin-top: calc(var(--spacing-xl) * 1.5);
+  margin-bottom: calc(var(--spacing-xl) * 1.5);
+  height: 0.02rem;
+  border: 0.02rem solid var(--color-gray);
+  box-shadow: 0 0 0.01rem 0.01rem rgba(black, 0.2);
+}

@@ -16,16 +16,16 @@ const articleTypes = {
     slug: 'highlights',
     fileName: 'highlight'
   },
-  research: {
-    datoCmsModelName: 'Researchitem',
-    slug: 'research',
-    fileName: 'research'
-  },
-  media: {
-    datoCmsModelName: 'Mediaitem',
-    slug: 'media',
-    fileName: 'media'
-  }
+  // research: {
+  //   datoCmsModelName: 'Researchitem',
+  //   slug: 'research',
+  //   fileName: 'research'
+  // },
+  // media: {
+  //   datoCmsModelName: 'Mediaitem',
+  //   slug: 'media',
+  //   fileName: 'media'
+  // }
 };
 
 exports.createPages = ({ graphql, actions }) => {
@@ -99,15 +99,6 @@ exports.createPages = ({ graphql, actions }) => {
           }
         });
 
-        // Highlights
-        createPage({
-          path: `${slug || ""}/highlights`,
-          component: path.resolve(`./src/templates/highlights-overview.js`),
-          context: {
-            slug: slug,
-          }
-        });
-
         // Members (only for labs)
         if(slug) {
           createPage({
@@ -118,6 +109,24 @@ exports.createPages = ({ graphql, actions }) => {
             }
           });
         }
+
+        // Highlights
+        createPage({
+          path: `${slug || ""}/highlights`,
+          component: path.resolve(`./src/templates/highlights-overview.js`),
+          context: {
+            slug: slug,
+          }
+        });
+
+        // Research
+        createPage({
+          path: `${slug || ""}/research`,
+          component: path.resolve(`./src/templates/research.js`),
+          context: {
+            slug: slug,
+          }
+        });
 
         // News
         createPage({
