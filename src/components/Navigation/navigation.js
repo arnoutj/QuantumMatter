@@ -55,7 +55,7 @@ class Navigation extends React.Component {
       <nav className="navigation" role="navigation">
         <ul className="navigation_menu" role="menubar" aria-label="Navigation">
           {this.state.menuItems
-            .filter((item) => (this.props.slug ? true : !item.labPage))
+            .filter((item) => (this.props.slug ? !item.generalPage : !item.labPage))
             .map((item, key) => (
               <li key={key}>
                 <Link

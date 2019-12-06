@@ -15,17 +15,7 @@ const articleTypes = {
     datoCmsModelName: 'Highlight',
     slug: 'highlights',
     fileName: 'highlight'
-  },
-  // research: {
-  //   datoCmsModelName: 'Researchitem',
-  //   slug: 'research',
-  //   fileName: 'research'
-  // },
-  // media: {
-  //   datoCmsModelName: 'Mediaitem',
-  //   slug: 'media',
-  //   fileName: 'media'
-  // }
+  }
 };
 
 exports.createPages = ({ graphql, actions }) => {
