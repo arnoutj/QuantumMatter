@@ -1,0 +1,22 @@
+@import "../mixins/responsive.scss";
+
+:root {
+    --gutter-width: 8px; //Flexbox grid default
+}
+
+@include media-breakpoint-down(sm) {
+    :root {
+        --gutter-width: 15px;
+    }
+}
+
+.container,
+[class*='col'] {
+    padding-left: var(--gutter-width);
+    padding-right: var(--gutter-width);
+}
+
+.row {
+    margin-left: calc(var(--gutter-width) * -1);
+    margin-right: calc(var(--gutter-width) * -1);
+}
