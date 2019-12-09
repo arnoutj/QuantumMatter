@@ -16,10 +16,10 @@ const LabNavigation = ({ labs, slug }) => {
   return (
     <div className="labnavigation" ref={ref}>
       <button
-        className="btn btn--small labnavigation_toggle"
+        className="btn btn--small"
         onClick={() => setIsMenuVisible(!isMenuVisible)}
       >
-        {activeLab.title}
+        <span>{activeLab.title}</span>
         <ArrowDown />
       </button>
       {isMenuVisible && (
