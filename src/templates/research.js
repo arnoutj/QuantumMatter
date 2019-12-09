@@ -29,8 +29,8 @@ export default ({ data, pageContext }) => (
 );
 
 export const query = graphql`
-  query ResearchQuery($slug: String) {
-    allDatoCmsResearchitem(filter: { lab: { slug: { eq: $slug } } }) {
+  query ResearchQuery($filter: DatoCmsResearchitemFilterInput) {
+    allDatoCmsResearchitem(filter: $filter) {
       nodes {
         title
         content

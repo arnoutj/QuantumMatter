@@ -10,8 +10,7 @@ class Navigation extends React.Component {
         //@TODO: make dynamic
         {
           slug: 'members',
-          label: 'Members',
-          labPage: true
+          label: 'Members'
         },
         {
           slug: 'highlights',

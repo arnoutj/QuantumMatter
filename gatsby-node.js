@@ -80,25 +80,26 @@ exports.createPages = ({ graphql, actions }) => {
         ...result.data.allDatoCmsLab.edges.map(({ node: lab }) => lab.slug)
       ];
       slugs.map(slug => {
+        const labFilter = slug ? { lab: { slug: { eq: `${slug}` } } } : {} // Will be used in GraphQL filter
+
         // Home
         createPage({
           path: `${slug || "/"}`,
           component: path.resolve(`./src/templates/home.js`),
           context: {
-            slug: slug,
+            slug: slug
           }
         });
 
-        // Members (only for labs)
-        if(slug) {
-          createPage({
-            path: `${slug}/members`,
-            component: path.resolve(`./src/templates/members-overview.js`),
-            context: {
-              slug: slug,
-            }
-          });
-        }
+        // Members
+        createPage({
+          path: `${slug || ""}/members`,
+          component: path.resolve(`./src/templates/members-overview.js`),
+          context: {
+            slug: slug,
+            filter: labFilter
+          }
+        });
 
         // Highlights
         createPage({
@@ -106,6 +107,7 @@ exports.createPages = ({ graphql, actions }) => {
           component: path.resolve(`./src/templates/highlights-overview.js`),
           context: {
             slug: slug,
+            filter: labFilter
           }
         });
 
@@ -115,6 +117,7 @@ exports.createPages = ({ graphql, actions }) => {
           component: path.resolve(`./src/templates/research.js`),
           context: {
             slug: slug,
+            filter: labFilter
           }
         });
 
@@ -124,6 +127,7 @@ exports.createPages = ({ graphql, actions }) => {
           component: path.resolve(`./src/templates/publications.js`),
           context: {
             slug: slug,
+            filter: labFilter
           }
         });
 
@@ -133,6 +137,7 @@ exports.createPages = ({ graphql, actions }) => {
           component: path.resolve(`./src/templates/news-overview.js`),
           context: {
             slug: slug,
+            filter: labFilter
           }
         });
       });

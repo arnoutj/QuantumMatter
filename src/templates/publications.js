@@ -35,8 +35,8 @@ export default ({ data, pageContext }) => (
 );
 
 export const query = graphql`
-  query PublicationQuery($slug: String) {
-    allDatoCmsPublication(filter: { lab: { slug: { eq: $slug } } }) {
+  query PublicationQuery($filter: DatoCmsPublicationFilterInput) {
+    allDatoCmsPublication(filter: $filter) {
       group(field: year) {
         year: fieldValue
         nodes {

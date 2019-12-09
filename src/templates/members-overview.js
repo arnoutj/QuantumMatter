@@ -8,6 +8,7 @@ import Member from '../components/Member/member';
 import Message from '../components/Message/message';
 
 const MembersPage = ({ data, pageContext }) => {
+  console.log(data);
   // Create groups per role only when they have members
   const roleGroups = data.allDatoCmsRole.nodes.filter((role) => {
     role.members = data.allDatoCmsMember.nodes.filter(
@@ -48,14 +49,14 @@ const MembersPage = ({ data, pageContext }) => {
 export default MembersPage;
 
 export const query = graphql`
-  query MembersOverviewQuery($slug: String) {
+  query MembersOverviewQuery($filter: DatoCmsMemberFilterInput) {
     allDatoCmsRole {
       nodes {
         name
         title
       }
     }
-    allDatoCmsMember(filter: { lab: { slug: { eq: $slug } } }) {
+    allDatoCmsMember(filter: $filter) {
       nodes {
         name
         description

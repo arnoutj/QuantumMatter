@@ -29,8 +29,8 @@ const NewsPage = ({ data, pageContext, location }) => (
 export default NewsPage;
 
 export const query = graphql`
-  query NewsOverviewQuery($slug: String) {
-    allDatoCmsNews(filter: { lab: { slug: { eq: $slug } } }) {
+  query NewsOverviewQuery($filter: DatoCmsNewsFilterInput) {
+    allDatoCmsNews(filter: $filter) {
       nodes {
         title
         image {

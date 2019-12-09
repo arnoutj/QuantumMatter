@@ -30,8 +30,8 @@ const HighlightsPage = ({ data, pageContext, location }) => (
 export default HighlightsPage;
 
 export const query = graphql`
-  query HighlightsOverviewQuery($slug: String) {
-    allDatoCmsHighlight(filter: { lab: { slug: { eq: $slug } } }) {
+  query HighlightsOverviewQuery($filter: DatoCmsHighlightFilterInput) {
+    allDatoCmsHighlight(filter: $filter) {
       nodes {
         title
         image {
