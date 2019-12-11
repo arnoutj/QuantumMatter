@@ -8,6 +8,7 @@ import Footer from '../Footer/footer';
 
 import '../../styles/global.scss';
 import './layout.scss';
+import ScrollButton from '../ScrollButton/scrollButton';
 
 const labThemeClasses = {
   "null": "theme-purple",
@@ -44,6 +45,7 @@ const TemplateWrapper = ({ children, pageContext }) => (
           {children}
         </main>
         <Footer />
+        <ScrollButton />
       </div>
     )}
   />

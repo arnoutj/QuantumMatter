@@ -1,0 +1,35 @@
+
+@import '../../styles/mixins/responsive.scss';
+
+.scroll-button {
+  position: fixed;
+
+  bottom: var(--spacing-lg);
+  right: var(--spacing-md);
+  border: none;
+
+  .btn {
+    width: 40px;
+    height: 40px;
+    color: black;
+  }
+
+  svg {
+    position: absolute;
+    width: var(--spacing-lg);
+    height: var(--spacing);
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    fill: black;
+  }
+
+  &.disabled {
+    opacity: .3;
+    pointer-events: none;
+  }
+
+  @include media-breakpoint-down(sm) {
+    display: none;
+  }
+}
