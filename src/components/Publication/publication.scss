@@ -4,9 +4,18 @@
   span {
     display: block;
     padding-bottom: var(--spacing);
+    line-height: var(--line-height-lg);
   }
   
   hr {
     margin: var(--spacing-xl) 0;
+  }
+}
+
+.publication_link {
+  margin-left: var(--spacing);
+
+  svg {
+    width: var(--font-size-sm);
   }
 }

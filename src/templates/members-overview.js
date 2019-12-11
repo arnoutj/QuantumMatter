@@ -8,7 +8,6 @@ import Member from '../components/Member/member';
 import Message from '../components/Message/message';
 
 const MembersPage = ({ data, pageContext }) => {
-  console.log(data);
   // Create groups per role only when they have members
   const roleGroups = data.allDatoCmsRole.nodes.filter((role) => {
     role.members = data.allDatoCmsMember.nodes.filter(
@@ -21,12 +20,12 @@ const MembersPage = ({ data, pageContext }) => {
       <Section>
         {roleGroups.map((roleGroup, key) => (
           <Row key={key}>
-            <Col xs={12} md={8} mdOffset={2}>
+            <Col xs={12} md={10} mdOffset={1} lg={8} lgOffset={2}>
               <div className="role-group">
                 <h2>{roleGroup.title}</h2>
                 <Row>
                   {roleGroup.members.map((member, key) => (
-                    <Col xs={6} lg={4} key={key}>
+                    <Col xs={12} sm={6} lg={4} key={key}>
                       <Member data={member} />
                     </Col>
                   ))}
