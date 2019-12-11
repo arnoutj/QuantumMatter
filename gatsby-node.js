@@ -140,6 +140,15 @@ exports.createPages = ({ graphql, actions }) => {
             filter: labFilter
           }
         });
+
+        // Contact
+        createPage({
+          path: `${slug || ""}/contact`,
+          component: path.resolve(`./src/templates/contact.js`),
+          context: {
+            slug: slug
+          }
+        });
       });
       resolve();
     });

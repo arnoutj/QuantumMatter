@@ -36,8 +36,7 @@ class Navigation extends React.Component {
         },
         {
           slug: 'contact',
-          label: 'Contact',
-          generalPage: true
+          label: 'Contact'
         }
       ]
     };
