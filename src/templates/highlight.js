@@ -9,7 +9,7 @@ export default ({ data: { highlightItem }, pageContext }) => (
     <Section>
       <Row>
         <Col xs={12} md={6} mdOffset={3}>
-          <Card data={highlightItem} hideLink />
+          <Card data={highlightItem} />
           {highlightItem.content.map((item, key) => (
             <div key={key}>
               {item.textblockNode && (

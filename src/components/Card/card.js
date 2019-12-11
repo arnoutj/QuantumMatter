@@ -5,7 +5,10 @@ import { Link } from 'gatsby';
 import './card.scss';
 
 const Card = ({ data, location }) => {
-  const url = location ? `${location.pathname}/${data.slug}` : null;
+  const url = location
+    ? `${data.lab ? `/${data.lab.slug}/` : ``}${location.pathname.split('/').pop()}/${data.slug}`
+    : null;
+
   return (
     <div className="card">
       {data.image && (
