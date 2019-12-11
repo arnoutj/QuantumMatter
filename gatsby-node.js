@@ -83,13 +83,15 @@ exports.createPages = ({ graphql, actions }) => {
         const labFilter = slug ? { lab: { slug: { eq: `${slug}` } } } : {} // Will be used in GraphQL filter
 
         // Home
-        createPage({
-          path: `${slug || "/"}`,
-          component: path.resolve(`./src/templates/home.js`),
-          context: {
-            slug: slug
-          }
-        });
+        if(slug) {
+          createPage({
+            path: `${slug || "/"}`,
+            component: path.resolve(`./src/templates/home.js`),
+            context: {
+              slug: slug
+            }
+          });
+        }
 
         // Members
         createPage({
