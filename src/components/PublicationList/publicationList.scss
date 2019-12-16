@@ -1,0 +1,10 @@
+.filters-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  padding-top: var(--spacing-md);
+
+  li {
+    display: inline-block;
+  }
+}

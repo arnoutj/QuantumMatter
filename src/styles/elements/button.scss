@@ -37,7 +37,8 @@
     box-shadow: 0.25rem 0.25rem 0 0 black;
   }
 
-  &:hover {
+  &:hover,
+  &.active {
     color: white;
     left: 0.25rem;
     top: 0.25rem;

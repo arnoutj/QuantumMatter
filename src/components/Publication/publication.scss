@@ -1,4 +1,5 @@
 .publication {
+  display: flex;
   margin-top: var(--spacing-xl);
   
   span {
@@ -8,8 +9,15 @@
   }
   
   hr {
+    display: block;
     margin: var(--spacing-xl) 0;
   }
+}
+
+.publication_thumbnail {
+  display: inline-block;
+  margin-right: var(--spacing-lg);
+  flex-shrink: 0;
 }
 
 .publication_link {
