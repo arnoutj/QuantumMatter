@@ -61,7 +61,7 @@ export const query = graphql`
         description
         contact
         image: photo {
-          fixed(width: 150) {
+          fixed(width: 150, height: 150, imgixParams: {faceindex: 1, facepad: 3, fit: "facearea"}) {
             ...GatsbyDatoCmsFixed
           }
         }

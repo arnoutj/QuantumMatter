@@ -44,7 +44,7 @@ export const query = graphql`
         name
         description
         image: photo {
-          fixed(width: 200) {
+          fixed(width: 200, height: 200, imgixParams: {faceindex: 1, facepad: 3, fit: "facearea"}) {
             ...GatsbyDatoCmsFixed
           }
         }
