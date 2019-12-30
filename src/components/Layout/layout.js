@@ -14,7 +14,9 @@ const labThemeClasses = {
   "null": "theme-purple",
   "golden": "theme-cyan",
   "van-heumen": "theme-orange",
-  "de-visser": "theme-green"
+  "de-visser": "theme-green",
+  "newell" : "theme-blue",
+  "van-de-groep" : "theme-red"
 };
 
 const TemplateWrapper = ({ children, pageContext }) => (

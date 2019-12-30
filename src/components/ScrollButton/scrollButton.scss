@@ -28,8 +28,4 @@
     opacity: .3;
     pointer-events: none;
   }
-
-  @include media-breakpoint-down(sm) {
-    display: none;
-  }
 }

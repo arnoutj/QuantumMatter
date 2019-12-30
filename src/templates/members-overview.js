@@ -1,6 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import { Row, Col } from 'react-flexbox-grid';
+import sortByLastNameAscending from '../utils/sort-by-lastname';
 
 import Layout from '../components/Layout/layout';
 import Section from '../components/Section/section';
@@ -8,11 +9,14 @@ import Member from '../components/Member/member';
 import Message from '../components/Message/message';
 
 const MembersPage = ({ data, pageContext }) => {
+
   // Create groups per role only when they have members
   const roleGroups = data.allDatoCmsRole.nodes.filter((role) => {
-    role.members = data.allDatoCmsMember.nodes.filter(
+    role.members = data.allDatoCmsMember.nodes
+    .filter(
       (member) => member.role.name === role.name
-    );
+    )
+    .sort((a, b) => sortByLastNameAscending(a.name, b.name));
     return role.members.length;
   });
   return (

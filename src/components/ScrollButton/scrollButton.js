@@ -46,7 +46,7 @@ class ScrollButton extends React.Component {
 
   render() {
     return this.state.visible ? (
-      <div className={`scroll-button ${this.state.disabled ? 'disabled' : null}`}>
+      <div className={`scroll-button ${this.state.disabled ? 'disabled' : ''}`}>
         <button
           title="Back to top"
           className="btn"

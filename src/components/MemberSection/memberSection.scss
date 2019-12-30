@@ -15,9 +15,9 @@
 
   &.small {
     flex-direction: row-reverse;
-    
+    margin-bottom: calc(var(--spacing-lg) * 2);
+
     @include media-breakpoint-down(md) {
-      margin-bottom: calc(var(--spacing-xl) * 2);
     }
 
     @include media-breakpoint-only(md) {

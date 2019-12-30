@@ -1,6 +1,8 @@
 .member {
   position: relative;
+  height: calc(100% - 5rem - calc(var(--spacing-lg) * 2));
   margin-top: calc(5rem + var(--spacing-lg)); //6.25 is 50% of member-image
+  // padding-bottom: calc(var(--spacing-xl) * 2);
   margin-bottom: var(--spacing-xl);
   padding: var(--spacing-lg);
   box-shadow: 0 0 2px rgba(black, 0.1),
@@ -11,6 +13,12 @@
     top: -5rem;
     left: 50%;
     transform: translate3d(-50%, 0, 0);
+  }
+
+  .member-image_inner {
+    min-width: 150px;
+    min-height: 150px;
+    background-color: var(--color-gray);
   }
 }
 
@@ -27,6 +35,7 @@
 
 .member_text {
   white-space: pre-line;
+  word-break: break-word;
 
   p {
     margin-top: var(--spacing-md);
