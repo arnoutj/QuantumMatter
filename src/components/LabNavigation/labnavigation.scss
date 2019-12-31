@@ -17,13 +17,14 @@
   .btn {
     min-width: 8rem;
     box-shadow: none;
-    background-color: var(--color-primary-d10);
+    background-color: var(--color-primary);
 
     @include media-breakpoint-down(md) {
       width: 10rem;
       text-align: center;
       margin: 0;
       box-shadow: 0;
+      background-color: var(--color-primary-d10); // Mobile has no hover state
 
       span {
         padding-left: var(--spacing);

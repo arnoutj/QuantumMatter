@@ -9,6 +9,7 @@ import Footer from '../Footer/footer';
 import '../../styles/global.scss';
 import './layout.scss';
 import ScrollButton from '../ScrollButton/scrollButton';
+import darken from '../../utils/color';
 
 const TemplateWrapper = ({ children, pageContext }) => (
   <StaticQuery
@@ -44,7 +45,7 @@ const TemplateWrapper = ({ children, pageContext }) => (
       const colorVariables = `
         :root {
           --color-primary: ${hexColor};
-          --color-primary-d10: ${hexColor};
+          --color-primary-d10: ${darken(hexColor, 10)};
         }
       `;
       
