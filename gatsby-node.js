@@ -88,7 +88,8 @@ exports.createPages = ({ graphql, actions }) => {
             path: `${slug || "/"}`,
             component: path.resolve(`./src/templates/home.js`),
             context: {
-              slug: slug
+              slug: slug,
+              filter: labFilter
             }
           });
         }

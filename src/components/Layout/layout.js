@@ -10,15 +10,6 @@ import '../../styles/global.scss';
 import './layout.scss';
 import ScrollButton from '../ScrollButton/scrollButton';
 
-const labThemeClasses = {
-  "null": "theme-purple",
-  "golden": "theme-cyan",
-  "van-heumen": "theme-orange",
-  "de-visser": "theme-green",
-  "newell" : "theme-blue",
-  "van-de-groep" : "theme-red"
-};
-
 const TemplateWrapper = ({ children, pageContext }) => (
   <StaticQuery
     query={graphql`
@@ -35,21 +26,42 @@ const TemplateWrapper = ({ children, pageContext }) => (
           nodes {
             title
             slug
+            color {
+              hex
+            }
+          }
+        }
+        datoCmsHome {
+          color {
+            hex
           }
         }
       }
     `}
-    render={(data) => (
-      <div className={`page-container ${labThemeClasses[pageContext ? pageContext.slug : null]}`}>
-        <HelmetDatoCms favicon={data.datoCmsSite.faviconMetaTags} />
-        <Header pageContext={pageContext} labs={data.allDatoCmsLab.nodes}/>
-        <main role="main">
-          {children}
-        </main>
-        <Footer />
-        <ScrollButton />
-      </div>
-    )}
+    render={(data) => {
+      const currentLab = pageContext ? data.allDatoCmsLab.nodes.find(lab => lab.slug === pageContext.slug) : null;
+      const hexColor = currentLab ? currentLab.color.hex : data.datoCmsHome.color.hex;
+      const colorVariables = `
+        :root {
+          --color-primary: ${hexColor};
+          --color-primary-d10: ${hexColor};
+        }
+      `;
+      
+      return (
+        <div className="page-container">
+          <HelmetDatoCms favicon={data.datoCmsSite.faviconMetaTags}>
+            <style>{colorVariables}</style>
+          </HelmetDatoCms>
+          <Header pageContext={pageContext} labs={data.allDatoCmsLab.nodes}/>
+          <main role="main">
+            {children}
+          </main>
+          <Footer />
+          <ScrollButton />
+        </div>
+      );
+    }}
   />
 );
 
