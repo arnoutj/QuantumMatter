@@ -28,7 +28,7 @@ export default ({ data: { newsItem }, pageContext }) => (
         </Col>
       </Row>
       <Row center="xs">
-        <Link className="btn" to={`${pageContext.slug}/news`}>
+        <Link className="btn" to={`${pageContext.slug ? pageContext.slug : ``}/news`}>
           Back to news
         </Link>
       </Row>

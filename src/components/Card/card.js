@@ -4,18 +4,31 @@ import { Link } from 'gatsby';
 
 import './card.scss';
 
-const Card = ({ data, location }) => {
+const Card = ({ data, location, showThumbnail }) => {
   const url = location
     ? `${data.lab ? `/${data.lab.slug}/` : ``}${location.pathname.split('/').pop()}/${data.slug}`
     : null;
 
+  const imageStyle = {
+    marginBottom: `var(--spacing-lg)`
+  };
+  
+  if(showThumbnail) {
+     imageStyle.maxHeight = "100%";
+     imageStyle.height =  "20rem";
+  }
+
   return (
     <div className="card">
       {data.image && (
-        <Img
-          placeholderStyle={{ backgroundColor: `var(--color-gray)` }}
-          fluid={data.image.fluid}
-        />
+        <div style={imageStyle}>
+          <Img
+            style={{ maxHeight: "100%" }}
+            imgStyle={{ objectFit: "contain" }}
+            placeholderStyle={{ backgroundColor: `var(--color-gray)` }}
+            fluid={data.image.fluid}
+          />
+        </div>
       )}
       {url ? (
         <Link to={url}>

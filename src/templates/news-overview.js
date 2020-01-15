@@ -12,7 +12,7 @@ const NewsPage = ({ data, pageContext, location }) => (
       <Row>
         <Col xs={12} md={6} mdOffset={3}>
           {data.allDatoCmsNews.nodes.map((node, key) => (
-            <Card key={key} data={node} location={location} />
+            <Card key={key} data={node} location={location} showThumbnail />
           ))}
         </Col>
       </Row>

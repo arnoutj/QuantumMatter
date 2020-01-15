@@ -28,7 +28,7 @@ export default ({ data: { highlightItem }, pageContext }) => (
         </Col>
       </Row>
       <Row center="xs">
-        <Link className="btn" to={`${pageContext.slug}/highlights`}>
+        <Link className="btn" to={`${pageContext.slug ? pageContext.slug : ``}/highlights`}>
           Back to highlights
         </Link>
       </Row>
