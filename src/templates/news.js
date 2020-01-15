@@ -1,6 +1,7 @@
 import React from 'react';
 import Layout from '../components/Layout/layout';
 import { Row, Col } from 'react-flexbox-grid';
+import { Link } from 'gatsby';
 import Section from '../components/Section/section';
 import Card from '../components/Card/card';
 
@@ -25,6 +26,11 @@ export default ({ data: { newsItem }, pageContext }) => (
             </div>
           ))}
         </Col>
+      </Row>
+      <Row center="xs">
+        <Link className="btn" to={`${pageContext.slug}/news`}>
+          Back to news
+        </Link>
       </Row>
     </Section>
   </Layout>

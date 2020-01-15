@@ -1,4 +1,4 @@
-.filters-list {
+.filters_list {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -6,5 +6,21 @@
 
   li {
     display: inline-block;
+    padding-right: var(--spacing-xs);
+  }
+}
+
+.filters_filter {
+  color: white;
+  background-color: var(--color-primary);
+  padding: var(--spacing) var(--spacing-md);
+  border: 0;
+  appearance: none;
+  cursor: pointer;
+
+  &:hover,
+  &:focus,
+  &.active {
+    background-color: var(--color-primary-d10);
   }
 }

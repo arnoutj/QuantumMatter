@@ -14,11 +14,11 @@ const PublicationList = ({ publications }) => {
       <Col xs={12} md={6} mdOffset={3}>
         {showFilters && (
           <div className="filters">
-            <h3 className="filters-label">Filter publications</h3>
-            <ul className="filters-list">
+            <h3 className="filters_label">Filter publications</h3>
+            <ul className="filters_list">
               <li>
                 <button
-                  className={`btn ${filter ? `` : `active`}`}
+                  className={`filters_filter ${filter ? `` : `active`}`}
                   onClick={() => filterByThesis(null)}
                 >
                   All
@@ -26,7 +26,7 @@ const PublicationList = ({ publications }) => {
               </li>
               <li>
                 <button
-                  className={`btn ${filter ? `active` : ``}`}
+                  className={`filters_filter ${filter ? `active` : ``}`}
                   onClick={() => filterByThesis(true)}
                 >
                   Theses
