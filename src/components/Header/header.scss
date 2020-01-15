@@ -42,25 +42,3 @@
     display: block;
   }
 }
-
-.header_logo {
-  .icon-white {
-    display: none;
-  }
-
-  @include media-breakpoint-down(md) {
-    .mobile-nav-visible & {
-      margin-bottom: var(--spacing);
-      
-      path {
-        fill: white;
-      }
-      .icon-black {
-        display: none;
-      }
-      .icon-white {
-        display: block;
-      }
-    }
-  }
-}

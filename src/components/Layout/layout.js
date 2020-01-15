@@ -26,6 +26,7 @@ const TemplateWrapper = ({ children, pageContext }) => (
         allDatoCmsLab {
           nodes {
             title
+            subtitle
             slug
             color {
               hex

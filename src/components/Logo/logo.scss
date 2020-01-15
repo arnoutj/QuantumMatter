@@ -1,0 +1,46 @@
+@import '../../styles/mixins/responsive.scss';
+
+.logo {
+  display: flex;
+  font-family: var(--font-secondary);
+  color: black;
+
+  .icon-white {
+    display: none;
+  }
+
+  @include media-breakpoint-down(md) {
+    .mobile-nav-visible & {
+      margin-bottom: var(--spacing);
+      color: white;
+
+      path {
+        fill: white;
+      }
+      .icon-black {
+        display: none;
+      }
+      .icon-white {
+        display: block;
+      }
+    }
+  }
+}
+
+.logo_text {
+  padding-left: var(--spacing);
+  display: flex;
+  flex-direction: column;
+}
+
+.logo_title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  margin-top: -3px;
+}
+
+.logo_subtitle {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-regular);
+  margin-top: var(--spacing-sm);
+}

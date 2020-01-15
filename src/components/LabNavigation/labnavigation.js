@@ -7,7 +7,6 @@ import './labnavigation.scss';
 const LabNavigation = ({ labs, slug }) => {
   const [isMenuVisible, setIsMenuVisible] = useState(false);
   const ref = useRef();
-
   labs = [...labs, { title: 'All groups', slug: null }];
   const activeLab = labs.find((lab) => lab.slug === slug);
 
@@ -19,7 +18,7 @@ const LabNavigation = ({ labs, slug }) => {
         className="btn btn--small"
         onClick={() => setIsMenuVisible(!isMenuVisible)}
       >
-        <span>{activeLab.title}</span>
+        <span>{activeLab.title}{activeLab.slug && ` Lab`}</span>
         <ArrowDown />
       </button>
       {isMenuVisible && (
@@ -36,7 +35,7 @@ const LabNavigation = ({ labs, slug }) => {
                   href={`/${lab.slug || ''}`}
                   onClick={() =>setIsMenuVisible(false)}
                 >
-                  {lab.title}
+                  {lab.title}{lab.slug && ` Lab`}
                 </a>
               </li>
             ))}

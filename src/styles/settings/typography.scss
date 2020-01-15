@@ -5,6 +5,13 @@
   src: url('../assets/fonts/anivers-bold.woff2') format('woff2'),
     url('../assets/fonts/anivers-bold.woff') format('woff'),
     url('../assets/fonts/anivers-bold.otf') format('otf');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'Anivers';
+  src: url('../assets/fonts/anivers-regular.woff2') format('woff2'),
+    url('../assets/fonts/anivers-regular.woff') format('woff');
   font-weight: normal;
 }
 

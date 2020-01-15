@@ -12,7 +12,7 @@ const HomePage = ({ pageContext, data }) => (
         <Col xs={12} md={7}>
           {data && data.lab && (
             <div>
-              <h1>{data.lab.title}</h1>
+              <h1>{data.lab.title} Lab</h1>
               <p>{data.lab.description}</p>
             </div>
           )}

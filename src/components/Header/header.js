@@ -1,10 +1,10 @@
 import React from 'react';
-import Logo from '../../assets/svg/logo.svg';
 import { Link, graphql, StaticQuery } from 'gatsby';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 
 import Navigation from '../Navigation/navigation';
 import LabNavigation from '../LabNavigation/labnavigation';
+import Logo from '../Logo/logo';
 
 import './header.scss';
 
@@ -33,7 +33,10 @@ class Header extends React.Component {
             <Col xs={12}>
               <div className="header_wrapper">
                 <Link to="/" alt={data.datoCmsSite.globalSeo.siteName}>
-                  <Logo className="header_logo" width="190" />
+                  <Logo 
+                    labs={labs}
+                    slug={pageContext ? pageContext.slug : null}
+                  />
                 </Link>
                 <LabNavigation
                   labs={labs}
