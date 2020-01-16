@@ -11,12 +11,16 @@ import Message from '../components/Message/message';
 const MembersPage = ({ data, pageContext }) => {
 
   // Create groups per role only when they have members
-  const roleGroups = data.allDatoCmsRole.nodes.filter((role) => {
-    role.members = data.allDatoCmsMember.nodes
+  const roleGroups = data.allDatoCmsRole.nodes
+    .sort((a, b) => a.order - b.order)
     .filter(
-      (member) => member.role.name === role.name
-    )
-    .sort((a, b) => sortByLastNameAscending(a.name, b.name));
+      (role) => {
+        role.members = data.allDatoCmsMember.nodes
+        .filter(
+          (member) => member.role.name === role.name
+        ).sort(
+          (a, b) => sortByLastNameAscending(a.name, b.name)
+      );
     return role.members.length;
   });
   return (
@@ -57,6 +61,7 @@ export const query = graphql`
       nodes {
         name
         title
+        order
       }
     }
     allDatoCmsMember(filter: $filter) {
