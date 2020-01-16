@@ -4,6 +4,7 @@ import Layout from '../components/Layout/layout';
 import { Row, Col } from 'react-flexbox-grid';
 import MemberSection from '../components/MemberSection/memberSection';
 import Section from '../components/Section/section';
+import HighlightSection from '../components/HighlightSection/highlightSection';
 
 const HomePage = ({ pageContext, data }) => (
   <Layout pageContext={pageContext}>
@@ -27,6 +28,7 @@ const HomePage = ({ pageContext, data }) => (
             </div>
           )}
         </Col>
+        {data.highlights.nodes.length && <HighlightSection highlights={data.highlights.nodes} />}
       </Row>
     </Section>
     {data.lab && data.lab.principal && (<MemberSection member={data.lab.principal} />)}
@@ -50,6 +52,23 @@ export const query = graphql`
         }
       }
     }
+
+    highlights: allDatoCmsHighlight(limit: 3, filter: { lab: {slug: {eq: $slug }}}) {
+      nodes {
+        title
+        intro
+        slug
+        image {
+          fluid {
+            ...GatsbyDatoCmsFluid
+          }
+        }
+        lab {
+          slug
+        }
+      }
+    }
+
     home: datoCmsHome {
       seoMetaTags {
         ...GatsbyDatoCmsSeoMetaTags

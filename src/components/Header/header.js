@@ -25,14 +25,14 @@ class Header extends React.Component {
   render() {
     const { data, labs, pageContext } = this.props;
     const { mobileNavigationIsVisible } = this.state;
-
+    const url = pageContext && pageContext.slug ? pageContext.slug : ``;
     return (
       <div className={`header ${mobileNavigationIsVisible ? 'mobile-nav-visible' : ''}`}>
         <Grid>
           <Row>
             <Col xs={12}>
               <div className="header_wrapper">
-                <Link to="/" alt={data.datoCmsSite.globalSeo.siteName}>
+                <Link to={`/${url}`} alt={data.datoCmsSite.globalSeo.siteName}>
                   <Logo 
                     labs={labs}
                     slug={pageContext ? pageContext.slug : null}

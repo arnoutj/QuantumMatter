@@ -6,6 +6,7 @@ import { Row, Col } from 'react-flexbox-grid';
 import Layout from '../components/Layout/layout';
 import Section from '../components/Section/section';
 import {MemberSectionColumns } from '../components/MemberSection/memberSection';
+import HighlightSection from '../components/HighlightSection/highlightSection';
 
 const IndexPage = ({ data }) => (
   <Layout>
@@ -25,6 +26,7 @@ const IndexPage = ({ data }) => (
           )}
         </Col>
       </Row>
+      {data.highlights.nodes && <HighlightSection highlights={data.highlights.nodes} />}
     </Section>
     {data.labs && (
       <MemberSectionColumns
@@ -61,6 +63,21 @@ export const query = graphql`
               ...GatsbyDatoCmsFixed
             }
           }
+        }
+      }
+    }
+    highlights: allDatoCmsHighlight(limit: 3) {
+      nodes {
+        slug
+        title
+        intro
+        image {
+          fluid {
+            ...GatsbyDatoCmsFluid
+          }
+        }
+        lab {
+          slug
         }
       }
     }
