@@ -70,7 +70,6 @@ export const query = graphql`
       nodes {
         slug
         title
-        intro
         image {
           fluid {
             ...GatsbyDatoCmsFluid

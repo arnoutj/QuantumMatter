@@ -56,7 +56,6 @@ export const query = graphql`
     highlights: allDatoCmsHighlight(limit: 3, filter: { lab: {slug: {eq: $slug }}}) {
       nodes {
         title
-        intro
         slug
         image {
           fluid {

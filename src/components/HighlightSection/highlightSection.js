@@ -22,8 +22,7 @@ const HighlightSection = ({ highlights }) => {
                                         >
                                         </BackgroundImage>}
                                     </div>
-                                    <h3>{highlight.title}</h3>
-                                    <p>{highlight.intro}</p>
+                                    <h4>{highlight.title}</h4>
                                 </Link>
                             </Col>
                         ))}
