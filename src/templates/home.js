@@ -28,8 +28,8 @@ const HomePage = ({ pageContext, data }) => (
             </div>
           )}
         </Col>
-        {data.highlights.nodes.length && <HighlightSection highlights={data.highlights.nodes} />}
       </Row>
+      {data.highlights.nodes.length && <HighlightSection highlights={data.highlights.nodes} />}
     </Section>
     {data.lab && data.lab.principal && (<MemberSection member={data.lab.principal} />)}
   </Layout>
