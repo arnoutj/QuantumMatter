@@ -14,7 +14,7 @@ const NewsPage = ({ data, pageContext }) => (
           {data.allDatoCmsNews.nodes.map((newsItem, key) => (
               <Row key={key}>
                 <Col xs={12}>
-                  <Card data={newsItem} />
+                  <Card data={newsItem} showThumbnail />
                   {newsItem.content.map((item, key) => (
                     <div key={key}>
                       {item.textblockNode && (
@@ -32,7 +32,7 @@ const NewsPage = ({ data, pageContext }) => (
                   <hr />
                 </Col>
               </Row>
-            // <Card key={key} data={node} location={location} showThumbnail />
+            
           ))}
         </Col>
       </Row>

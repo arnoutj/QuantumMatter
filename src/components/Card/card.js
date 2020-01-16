@@ -10,18 +10,30 @@ const Card = ({ data, location, showThumbnail }) => {
     ? `${data.lab ? `/${data.lab.slug}/` : ``}${location.pathname.split('/').pop()}/${data.slug}`
     : null;
 
+  const imageStyle = {
+    marginBottom: `var(--spacing-lg)`
+  };
+  
+  if(showThumbnail) {
+      imageStyle.maxHeight = "100%";
+      imageStyle.height =  "20rem";
+  }
+
   return (
     <div className="card">
-      {data.image && (
+      {data.image && 
         showThumbnail ? 
-            <div className="card_image-container">
-              <BackgroundImage className="card_image" fluid={data.image.fluid} />
+            <div style={imageStyle}>
+              <Img
+                style={{ maxHeight: "100%" }}
+                imgStyle={{ objectFit: "contain" }}
+                fluid={data.image.fluid} />
             </div>
             :
-              <Img
-                placeholderStyle={{ backgroundColor: `var(--color-gray)` }}
-                fluid={data.image.fluid} />
-            )}
+            <Img
+              fluid={data.image.fluid} />
+      }
+
       {url ? (
         <Link to={url}>
           <h2>{data.title}</h2>
