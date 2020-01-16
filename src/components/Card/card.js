@@ -1,7 +1,6 @@
 import React from 'react';
 import Img from 'gatsby-image';
 import { Link } from 'gatsby';
-import BackgroundImage from 'gatsby-background-image';
 
 import './card.scss';
 
@@ -21,7 +20,7 @@ const Card = ({ data, location, showThumbnail }) => {
 
   return (
     <div className="card">
-      {data.image && 
+      {data.image && (
         showThumbnail ? 
             <div style={imageStyle}>
               <Img
@@ -32,6 +31,7 @@ const Card = ({ data, location, showThumbnail }) => {
             :
             <Img
               fluid={data.image.fluid} />
+        )
       }
 
       {url ? (

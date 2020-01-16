@@ -12,7 +12,7 @@ const MembersPage = ({ data, pageContext }) => {
 
   // Create groups per role only when they have members
   const roleGroups = data.allDatoCmsRole.nodes
-    .sort((a, b) => a.order - b.order)
+    .sort((a, b) => a.order- b.order)
     .filter(
       (role) => {
         role.members = data.allDatoCmsMember.nodes
