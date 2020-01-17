@@ -8,7 +8,7 @@ const Logo = ({ labs = [], slug }) => {
 
     return (
         <div className="logo">
-            <Icon width="40" />
+            <Icon width="40" height="40" />
             <span className="logo_text">
                 <span className="logo_title">{activeLab ? activeLab.title : "Quantum Materials" }</span>
                 <span className="logo_subtitle">{activeLab ? activeLab.subtitle : "Amsterdam"}</span>
