@@ -46,6 +46,7 @@ export const query = graphql`
           ...GatsbyDatoCmsFluid
         }
       }
+      imageHeight
       content {
         ... on DatoCmsParagraph {
           textblockNode {

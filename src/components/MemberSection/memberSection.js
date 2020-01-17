@@ -33,7 +33,7 @@ export const MemberSectionColumns = ({ members }) => (
 );
 
 const MemberSectionMember = ({ member, small }) => (
-    <div className={`member-section_member ${small ? 'small' : null}`}>
+    <div className={`member-section_member ${small ? 'small' : ``}`}>
         <div className="member-section_content">
             <h3>{member.name}</h3>
             <p>{member.description}</p>

@@ -46,7 +46,7 @@ export const query = graphql`
         name
         description
         image: photo {
-          fixed(width: 200, height: 200, imgixParams: {faceindex: 1, facepad: 3, fit: "facearea"}) {
+          fixed(width: 150, height: 150, imgixParams: {faceindex: 1, facepad: 3, fit: "facearea"}) {
             ...GatsbyDatoCmsFixed
           }
         }
@@ -62,6 +62,7 @@ export const query = graphql`
             ...GatsbyDatoCmsFluid
           }
         }
+        imageHeight
         lab {
           slug
         }

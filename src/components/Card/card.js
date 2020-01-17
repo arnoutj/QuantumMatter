@@ -12,10 +12,10 @@ const Card = ({ data, location, showThumbnail }) => {
   const imageStyle = {
     marginBottom: `var(--spacing-lg)`
   };
-  
+
   if(showThumbnail) {
       imageStyle.maxHeight = "100%";
-      imageStyle.height =  "20rem";
+      imageStyle.height =  data.imageHeight ? `${data.imageHeight}px` : "20rem";
   }
 
   return (

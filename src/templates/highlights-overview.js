@@ -39,6 +39,7 @@ export const query = graphql`
             ...GatsbyDatoCmsFluid
           }
         }
+        imageHeight
         intro
         slug
         lab {
