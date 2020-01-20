@@ -5,26 +5,27 @@
   font-family: var(--font-secondary);
   color: black;
 
-  .icon-white {
-    display: none;
-  }
-
   @include media-breakpoint-down(md) {
     .mobile-nav-visible & {
-      margin-bottom: var(--spacing);
       color: white;
 
-      path {
-        fill: white;
-      }
-      .icon-black {
+      &_icon {
         display: none;
       }
-      .icon-white {
+
+      &_icon-inverted {
         display: block;
       }
     }
   }
+}
+
+.logo_icon {
+  margin-bottom: var(--spacing);
+}
+
+.logo_icon-inverted {
+  display: none;
 }
 
 .logo_text {
