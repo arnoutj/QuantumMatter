@@ -33,6 +33,7 @@
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.js\""
   },
   "devDependencies": {
+    "citation-js": "^0.5.0-alpha.4",
     "prettier": "^1.19.1"
   }
 }
