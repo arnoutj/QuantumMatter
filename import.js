@@ -1,15 +1,18 @@
 /***
  * Create records
  */
-function createRecords(file) {
+function createRecords(file, labId) {
   file.forEach(function(r) {
     var record = transformRecord(r);
-
+    
     if(alreadyExists(record)){
       console.error(`Record '${record.title}' (DOI: ${record.doi}) already exists.`);
       return;
     }
-
+  
+    // Add labId to record
+    record.lab = labId;
+  
     if(!!record) {
       createDatoCMSRecord(record);
     }else{
@@ -19,7 +22,7 @@ function createRecords(file) {
   });
 }
 
-function createRecordFromDOI(doi) {
+function createRecordFromDOI(doi, labId) {
   let data = new Cite(doi).format('data');
 
   if(!data) {
@@ -28,7 +31,7 @@ function createRecordFromDOI(doi) {
   }
 
   data = JSON.parse(data);
-  createRecords(data);
+  createRecords(data, labId);
 }
 
 /***
@@ -72,7 +75,7 @@ function createPublication(inputRecord) {
   return {
     itemType: itemType.id,
     title: inputRecord['title'],
-    author: inputRecord['author'].map(author => `${author.family}, ${author.given}`).join(),
+    author: inputRecord['author'].map(author => `${author.family}, ${author.given}`).join(", "),
     year: inputRecord['issued']['date-parts'][0][0],
     journal: inputRecord['container-title'],
     doi: inputRecord['DOI'],
@@ -80,7 +83,7 @@ function createPublication(inputRecord) {
     url: inputRecord['URL'],
     thesis: false,
     thumbnail: null,
-    lab: null
+    lab: inputRecord.labId
   };
 }
 
@@ -98,6 +101,7 @@ function createMember(inputRecord) {
  * Create actual record in DatoCMS
  */
 function createDatoCMSRecord(record) {
+  console.log(`Creating record ${record.doi}`);
   client.items.create(record)
     .then(createdRecord => {
       console.log(`Created '${createdRecord.title}' (DOI: ${record.doi}).`);
@@ -131,31 +135,63 @@ function getRecordsForType(type) {
     });
 }
 
+/**
+ * Get all publications
+ */
+// Init
+function getAllPublications() {
+  return new Promise((resolve, reject) => {
+    client.itemTypes.all()
+    .then((types) => {
+      itemTypes = types;
+      getRecordsForType('publication')
+        .then((publications) => {
+          existingPublications = publications;
+          resolve(publications);
+      }),
+      (error) => reject(error)
+    });
+  });
+}
+
 const Cite = require('citation-js');
 const SiteClient = require('datocms-client').SiteClient;
 const client = new SiteClient('77f20cb6665eb5fbd0e7ca17037cb4');
 let existingPublications = [];
 let itemTypes = [];
 
-// Init
-client.itemTypes.all()
-  .then((types) => {
-    itemTypes = types;
-    getRecordsForType('publication')
-      .then((publications) => {
-        existingPublications = publications;
-        const doi = createRecordFromDOI('10.1103/PhysRevX.7.041041');
-      });
+// CLI
+const readline = require('readline').createInterface({
+  input: process.stdin,
+  output: process.stdout
+})
+
+getRecordsForType('lab').then((labs) => {
+  // List labs
+  console.table(labs.map(lab => [lab.title, lab.id]));
+
+  readline.question(`Enter the lab id for which you would like to add publications (can be left empty): `, (labId) => {
+    readline.question(`Would you like to enter DOIs manually (Y/N)? `, (answer) => {
+      // Manual input
+      if(answer.toLowerCase() === "y") {
+        readline.question(`Enter DOIs separated by ",": `, (input) => {
+          const doiList = input.split(',').filter(doi => !!doi.length);
+          getAllPublications().then(() => {
+            doiList.map(doi => createRecordFromDOI(doi, labId));
+          });
+          readline.close();
+        });
+      // Read from Javascript file
+      }else{
+        const file = require("./doi");
+        if(!file.length) {
+          console.error("The imported file does not contain any DOIs.")
+        }
+        getAllPublications().then(() => {
+          file.map(doi => createRecordFromDOI(doi, labId));
+        });
+        readline.close();
+      }
     });
-
-// Get models
-// client.itemTypes.all()
-//   .then((models) => console.log(models.map(model => model.apiKey)));
-
-// Get records
-// client.items.all({}, { allPages: true })
-//   .then((records) => {
-//     console.log(`Retrieved records from DatoCMS`);
-//     console.log(records);
-//     existingRecords = records;
-//   });
+  });
+});
