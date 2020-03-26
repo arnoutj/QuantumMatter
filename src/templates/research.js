@@ -14,7 +14,7 @@ export default ({ data, pageContext }) => (
           {data.allDatoCmsResearchitem.nodes.map((item, key) => (
             <div key={key}>
               <h2>{item.title}</h2>
-              <p>{item.content}</p>
+              <p dangerouslySetInnerHTML={{ __html : item.contentNode.childMarkdownRemark.html }} />
               <hr />
             </div>
           ))}
@@ -33,7 +33,11 @@ export const query = graphql`
     allDatoCmsResearchitem(filter: $filter) {
       nodes {
         title
-        content
+        contentNode {
+          childMarkdownRemark {
+            html
+          }
+        }
       }
     }
   }
