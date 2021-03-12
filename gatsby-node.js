@@ -81,7 +81,7 @@ exports.createPages = ({ graphql, actions }) => {
       ];
       slugs.map(slug => {
         const labFilter = slug ? { lab: { slug: { eq: `${slug}` } } } : {} // Will be used in GraphQL filter
-
+        const labFilter2 = slug ? { lab2: { slug: { eq: `${slug}` } } } : {} // Will be used in GraphQL filter
         // Home
         if(slug) {
           createPage({
@@ -130,7 +130,8 @@ exports.createPages = ({ graphql, actions }) => {
           component: path.resolve(`./src/templates/publications.js`),
           context: {
             slug: slug,
-            filter: labFilter
+            filter: labFilter,
+            filter2: labFilter2
           }
         });
 
