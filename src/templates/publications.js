@@ -42,6 +42,27 @@ export const query = graphql`
           thesis
         }
       }
+    },
+    allDatoCmsPublication(filter2: $filter2) {
+      group(field: year) {
+        year: fieldValue
+        nodes {
+          title
+          author
+          journal
+          year
+          url
+          thumbnail {
+            fixed(width: 100) {
+              aspectRatio
+              width
+              height
+              src
+            }
+          }
+          thesis
+        }
+      }
     }
   }
 `;
