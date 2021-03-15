@@ -45,29 +45,3 @@ export const query = graphql`
     }
   }
 `;
-
-export const query = graphql`
-  query PublicationQuery($filter: DatoCmsPublicationFilterInput) {
-    allDatoCmsPublication(filter2: $filter) {
-      group(field: year) {
-        year: fieldValue
-        nodes {
-          title
-          author
-          journal
-          year
-          url
-          thumbnail {
-            fixed(width: 100) {
-              aspectRatio
-              width
-              height
-              src
-            }
-          }
-          thesis
-        }
-      }
-    }
-  }
-`;
