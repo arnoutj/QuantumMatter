@@ -1,5 +1,4 @@
 import React from 'react';
-import { graphql } from 'gatsby';
 import Layout from '../components/Layout/layout';
 import { Row, Col } from 'react-flexbox-grid';
 import { Link } from 'gatsby';
