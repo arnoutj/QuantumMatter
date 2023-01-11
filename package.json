@@ -14,7 +14,7 @@
     "gatsby-plugin-sharp": "^2.3.5",
     "gatsby-source-datocms": "^2.1.18",
     "gatsby-source-filesystem": "^2.1.39",
-    "gatsby-transformer-remark": "^2.6.38",
+    "gatsby-transformer-remark": "^5.25.1",
     "gatsby-transformer-sharp": "^2.3.6",
     "node-sass": "^4.13.0",
     "react": "^16.12.0",
